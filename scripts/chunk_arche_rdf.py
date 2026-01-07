@@ -192,8 +192,8 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
     parser = argparse.ArgumentParser(description="Chunk OKAR ARCHE RDF/XML export")
     parser.add_argument(
         "--input",
-        default="data/rdf/arche.rdf",
-        help="Input RDF/XML file (default: data/rdf/arche.rdf)",
+        default="metadata_to_ingest/arche.rdf",
+        help="Input RDF/XML file (default: metadata_to_ingest/arche.rdf)",
     )
     parser.add_argument(
         "--output",
