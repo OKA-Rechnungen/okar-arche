@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acdh:ACDH xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#">
+    <acdh:Constanst>
+        <acdh:DefaultLang>de</acdh:DefaultLang>
+    </acdh:Constanst>
+    <acdh:TopCollection rdf:about="https://id.acdh.oeaw.ac.at/okar">
+        <acdh:hasPid>create</acdh:hasPid>
+	    <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnungsbücher der Stadt Wien</acdh:hasTitle> 
+	    <acdh:hasDescription xml:lang="de">Die Sammlung enthaltet 289 digitalisierte Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768.</acdh:hasDescription>
+        <acdh:hasContact rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+        <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
+        <acdh:hasDepositor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+        <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7"/>   
+        <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/dschopper" />
+        <acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1424-01-01</acdh:hasCoverageStartDate>
+        <acdh:hasCoverageEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1767-12-31</acdh:hasCoverageEndDate>
+        <acdh:hasSubject xml:lang="de">Digitale Edition</acdh:hasSubject>
+        <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
+        <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601020"/>
+        <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601029"/>
+        <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/605007"/>
+        <acdh:hasNamingScheme xml:lang="de">Bilddateien sind als „WSTLA-OKA-B1-1-[001-289]-[1-2]_[001-999].tif” und XML-TEI-Dateien sind als „WSTLA-OKA-B1-1-[001-289]-[1-2].xml” benannt.</acdh:hasNamingScheme>
+        <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
+        <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
+        <acdh:hasArrangement xml:lang="de">OKAR enthält die Sammlungen „Originalbilder“ und „Bearbeitete Bilder“ mit Untersammlungen von Bildern für jeden Band. Die Sammlung „XML-Editionen“ enthält XML-TEI-Editionen der Bände und die Sammlung „Ergänzende Materialien“ enthält diverse Dateien.</acdh:hasArrangement>
+        <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
+        <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
+        <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
+        <!-- <acdh:hasLicensor rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
+        <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
+        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/oeaw"/>
+        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/none"/> -->
+        <acdh:hasPrincipalInvestigator rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+        <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" />
+        <!-- <acdh:hasUrl>https://okar.acdh.oeaw.ac.at</acdh:hasUrl> -->
+	<acdh:hasCreatedStartDate>2025-10-01</acdh:hasCreatedStartDate>
+        <acdh:hasCreatedEndDate>2026-03-31</acdh:hasCreatedEndDate>
+        <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/openaire_data" />
+        <acdh:hasCurator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
+        <acdh:hasCustomCitation>editor = {Wiener Stadt- und Landesarchiv and Klugseder, Robert}</acdh:hasCustomCitation>
+    </acdh:TopCollection>
+    <acdh:Cols>
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/masters">
+            <acdh:hasPid>create</acdh:hasPid>
+            <acdh:hasTitle xml:lang="de">Originalbilder</acdh:hasTitle>
+            <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasArrangement xml:lang="de">„Originalbilder“ enthält eine Sammlung für jeden Band</acdh:hasArrangement>
+            <!-- <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-nc-nd-4-0" /> -->
+	    <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
+            <acdh:hasDescription xml:lang="de">Gescannte Bände der Oberkammeramtsrechnungsbücher der Stadt Wien (Originalbilder)</acdh:hasDescription>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
+        </acdh:Collection>
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/derivates">
+            <acdh:hasPid>create</acdh:hasPid>
+            <acdh:hasArrangement xml:lang="de">„Bearbeitete Bilder“ enthält eine Sammlung für jeden Band</acdh:hasArrangement>
+            <acdh:hasTitle xml:lang="de">Bearbeitete Bilder</acdh:hasTitle>
+            <!-- <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-nc-nd-4-0" /> -->
+	    <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
+            <acdh:hasDescription xml:lang="de">Gescannten Bände der Oberkammeramtsrechnungsbücher der Stadt Wien (Bearbeitete Bilder)</acdh:hasDescription>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
+        </acdh:Collection>
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/meta">
+            <acdh:hasPid>create</acdh:hasPid>
+                        <acdh:hasTitle xml:lang="de">Ergänzende Materialien</acdh:hasTitle>
+            <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
+            <acdh:hasDescription xml:lang="de">XML-Schemas und Bilder</acdh:hasDescription>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
+        </acdh:Collection>
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/editions">
+            <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+            <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
+            <acdh:hasPid>create</acdh:hasPid>
+            <acdh:hasTitle xml:lang="de">XML-TEI-Editionen</acdh:hasTitle>
+            <acdh:hasDescription xml:lang="de">XML-TEI-Editionen der Oberkammeramtsrechnungsbücher der Stadt Wien</acdh:hasDescription>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
+        </acdh:Collection>
+    </acdh:Cols>
+    <acdh:MetaAgents>
+        <acdh:Person rdf:about="https://id.acdh.oeaw.ac.at/junterholzner">
+             <acdh:hasFirstName xml:lang="und">Johanna Maria</acdh:hasFirstName>
+             <acdh:hasLastName xml:lang="und">Unterholzner</acdh:hasLastName>
+             <acdh:hasPersonalTitle>BA MA</acdh:hasPersonalTitle>
+             <acdh:hasAddressLine1>Bäckerstraße 13</acdh:hasAddressLine1>
+             <acdh:hasAddressLine2>c/o ACDH</acdh:hasAddressLine2>
+             <acdh:hasCity xml:lang="en">Wien</acdh:hasCity>
+             <acdh:hasCity xml:lang="und">Vienna</acdh:hasCity>
+             <acdh:hasPostcode>1010</acdh:hasPostcode>
+             <acdh:hasRegion xml:lang="de">Wien</acdh:hasRegion>
+             <acdh:hasRegion xml:lang="und">Vienna</acdh:hasRegion>
+             <acdh:hasEmail>johannamaria.unterholzner@oeaw.ac.at</acdh:hasEmail>
+             <acdh:hasUrl>https://www.oeaw.ac.at/acdh/institute/team/staff-members/johanna-unterholzner</acdh:hasUrl>
+        </acdh:Person>
+        <acdh:Organisation  rdf:about="https://id.acdh.oeaw.ac.at/bmwkms">
+           <!-- <acdh:hasUrl>https://www.bmwkms.gv.at</acdh:hasUrl> -->
+           <acdh:hasTitle xml:lang="de">Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport</acdh:hasTitle>
+           <acdh:hasIdentifier rdf:resource="http://d-nb.info/gnd/1372658793" />
+           <acdh:hasIdentifier rdf:resource="http://viaf.org/viaf/1756175417526804080004" />
+        </acdh:Organisation>
+    </acdh:MetaAgents>
+
+    <!-- mandatory properties shared by acdh:Collection AND acdh:Resource -->
+    <acdh:RepoObject>
+        <acdh:hasDepositor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+        <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
+        <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
+        <acdh:hasCurator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
+        <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/openaire_data" />
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
+    </acdh:RepoObject>
+     <acdh:MetaObject>
+        <acdh:hasLicensor rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
+        <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
+        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/oeaw"/>
+        <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
+        <acdh:hasCreatedStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-17</acdh:hasCreatedStartDate>
+        <acdh:hasCreatedEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-18</acdh:hasCreatedEndDate>
+        <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar/meta"/>
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
+    </acdh:MetaObject>
+    <acdh:EditionObject>
+        <acdh:hasLicensor rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
+        <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
+        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/oeaw"/>
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder" />
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro" />
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/dschopper" />
+        <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" />
+        <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
+        <acdh:hasFormat>application/xml</acdh:hasFormat>
+        <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei" />
+        <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar/editions"/>
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
+    </acdh:EditionObject>
+     <acdh:DerivateObject>
+        <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasDigitisingAgent rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/none"/>
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/dschopper" />
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro" />
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0" />
+        <!-- <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool" />
+        <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation> -->
+    </acdh:DerivateObject>
+    <acdh:ImgObject>
+        <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasDigitisingAgent rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/none"/>
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0" />
+        <!-- <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool" /> -->
+        <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation>
+    </acdh:ImgObject>
+</acdh:ACDH>
