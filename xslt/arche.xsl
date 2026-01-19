@@ -140,7 +140,15 @@
                 <xsl:variable name="origDateNotAfter" select="normalize-space(string($origDate/@notAfter))"/>
                 <xsl:variable name="contentDescriptionNodes" select=".//tei:msContents/tei:p[not(tei:origDate)]"/>
                 <xsl:variable name="origDateDescription" select="normalize-space(string-join($contentDescriptionNodes//text(), ' '))"/>
-                <xsl:variable name="shelfmark" select="normalize-space(string((.//tei:teiHeader/tei:fileDesc/tei:sourceDesc//tei:msIdentifier/tei:idno[@type='shelfmark'])[1]))"/>
+                <xsl:variable name="shelfmark" select="concat('AT-WSTLA ', normalize-space(string((.//tei:teiHeader/tei:fileDesc/tei:sourceDesc//tei:msIdentifier/tei:idno[@type='shelfmark'])[1])))"/>
+                <!-- Kämmerer extraction: find respStmt with resp matching Kämmerer variants -->
+                <xsl:variable name="kaemmererRespStmts" select=".//tei:titleStmt/tei:respStmt[some $r in tei:resp satisfies matches(normalize-space($r), '[Kk]ämmerer|[Kk]aemmerer', 'i')]"/>
+                <!-- Prefer (Ober)kämmerer entry if present, otherwise take first entry -->
+                <xsl:variable name="selectedKaemmererRespStmt" select="if ($kaemmererRespStmts[some $r in tei:resp satisfies normalize-space($r) = '(Ober)kämmerer']) then $kaemmererRespStmts[some $r in tei:resp satisfies normalize-space($r) = '(Ober)kämmerer'][1] else $kaemmererRespStmts[1]"/>
+                <xsl:variable name="kaemmererRespText" select="normalize-space(($selectedKaemmererRespStmt/tei:resp[matches(normalize-space(.), '[Kk]ämmerer|[Kk]aemmerer', 'i')])[1])"/>
+                <!-- If resp is (Ober)kämmerer, set kaemmerer to Oberkämmerer, otherwise Kämmerer -->
+                <xsl:variable name="kaemmerer" select="if ($kaemmererRespText = '(Ober)kämmerer') then 'Oberkämmerer' else if (string-length($kaemmererRespText) &gt; 0) then 'Kämmerer' else ''"/>
+                <xsl:variable name="kaemmererName" select="normalize-space(($selectedKaemmererRespStmt/tei:persName)[1])"/>
                 <xsl:variable name="origDateYear" select="if ($origDateWhen and matches($origDateWhen, '^-?\d{4}')) then replace($origDateWhen, '^(-?\d{4}).*$', '$1') else ''"/>
                 <xsl:variable name="startYear" select="if ($origDateNotBefore and matches($origDateNotBefore, '^-?\d{4}')) then replace($origDateNotBefore, '^(-?\d{4}).*$', '$1') else ''"/>
                 <xsl:variable name="endYear" select="if ($origDateNotAfter and matches($origDateNotAfter, '^-?\d{4}')) then replace($origDateNotAfter, '^(-?\d{4}).*$', '$1') else ''"/>
@@ -180,7 +188,8 @@
                         </acdh:hasTemporalCoverageIdentifier>
                     </xsl:if>
                 </xsl:variable>
-                <xsl:variable name="descriptionElements">
+                <!-- Original descriptionElements kept for non-TEI resources -->
+                <xsl:variable name="descriptionElementsOrig">
                     <xsl:if test="$origDateDescription">
                         <acdh:hasDescription xml:lang="de">
                             <xsl:value-of select="$origDateDescription"/>
@@ -256,19 +265,23 @@
                     </xsl:choose>
                 </xsl:variable>
                 <xsl:variable name="volumeLabel" select="normalize-space(string($volumeTitleBase))"/>
+                <!-- descriptionElements for xml-tei resources with kämmerer info -->
                 <xsl:variable name="descriptionElements">
-                            <xsl:choose>
-                                <xsl:when test="$origDateDescription and string-length(normalize-space($origDateDescription))">
-                                    <xsl:value-of select="concat('Digitalisierte Seiten des Bandes ', $volumeLabel, ' – ', $origDateDescription)"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="concat('Digitalisierte Seiten des Bandes ', $volumeLabel)"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:variable>
-                        <acdh:hasDescription xml:lang="de">
-                            <xsl:value-of select="$descriptionElements"/>
-                        </acdh:hasDescription>
+                    <xsl:choose>
+                        <xsl:when test="string-length($kaemmerer) &gt; 0 and string-length($kaemmererName) &gt; 0 and string-length(normalize-space($origDateDescription)) &gt; 0">
+                            <xsl:value-of select="concat($kaemmerer, ': ', $kaemmererName, '&#10; &#10; Inhalt: ', $origDateDescription)"/>
+                        </xsl:when>
+                        <xsl:when test="string-length($kaemmerer) &gt; 0 and string-length($kaemmererName) &gt; 0">
+                            <xsl:value-of select="concat($kaemmerer, ': ', $kaemmererName)"/>
+                        </xsl:when>
+                        <xsl:when test="string-length(normalize-space($origDateDescription)) &gt; 0">
+                            <xsl:value-of select="concat('Inhalt: ', $origDateDescription)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="concat('Digitalisierte Seiten des Bandes ', $volumeLabel)"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
                 <xsl:variable name="graphics" select=".//tei:facsimile/tei:surface/tei:graphic[@url][not(starts-with(@url, 'http'))]"/>
                 <xsl:variable name="graphicsSorted" as="element(tei:graphic)*">
                     <xsl:perform-sort select="$graphics">
@@ -279,20 +292,17 @@
                 <acdh:Resource rdf:about="{$id}">
                     <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
                     <acdh:hasTitle xml:lang="de">
-                        <xsl:choose>
-                            <!-- For ID-only / numeric-only cases, $volumeLabel already contains the correct fallback title -->
-                            <xsl:when test="matches($teiTitleCandidate, '^WSTLA-OKA-B1-1-[0-9]+-1$') or matches($teiTitleCandidate, '^[0-9]+$')">
-                                <xsl:value-of select="$volumeLabel"/>
-                            </xsl:when>
-                            <!-- For descriptive titles, append the volume id in parentheses -->
-                            <xsl:otherwise>
-                                <xsl:value-of select="concat($volumeLabel, ' (', normalize-space($volumeId), ')')"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
+                        <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, ' (XML-TEI Edition)')"/>
                     </acdh:hasTitle>
+                    <acdh:isObjectMetadataFor>
+                    <acdh:isObjectMetadataFor rdf:resource="{$Derivates}/{$volumeId}"/>
+                    <acdh:isObjectMetadataFor rdf:resource="{$Facsimiles}/{$volumeId}"/>
+		    </acdh:isObjectMetadataFor>
                     <xsl:copy-of select="$coverageElements/*"/>
                     <xsl:copy-of select="$coverageIdentifierElements/*"/>
-                    <xsl:copy-of select="$descriptionElements/*"/>
+                    <acdh:hasDescription xml:lang="de">
+                        <xsl:value-of select="$descriptionElements"/>
+                    </acdh:hasDescription>
                     <xsl:copy-of select="$identifierElements/*"/>
                     <xsl:copy-of select="$constants"/>
                     <xsl:copy-of select="$constantsEdition"/>
@@ -376,20 +386,10 @@
                             <!-- DEBUG: removed -->
                         <acdh:hasPid>create</acdh:hasPid>
                         <acdh:hasTitle xml:lang="de">
-                            <xsl:value-of select="concat($subcollectionTitleBase, ' – Originalbilder')"/>
+                            <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, ' (Master-Scans)')"/>
                         </acdh:hasTitle>
-                        <xsl:variable name="collectionDescription">
-                            <xsl:choose>
-                                <xsl:when test="$origDateDescription and string-length(normalize-space($origDateDescription))">
-                                    <xsl:value-of select="concat('Digitalisierte Seiten des Bandes ', $volumeLabel, ' – ', $origDateDescription)"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="concat('Digitalisierte Seiten des Bandes ', $volumeLabel)"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:variable>
                         <acdh:hasDescription xml:lang="de">
-                            <xsl:value-of select="$collectionDescription"/>
+                            <xsl:value-of select="$descriptionElements"/>
                         </acdh:hasDescription>
                         <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" /> 
                         <xsl:copy-of select="$coverageElements/*"/>
@@ -407,21 +407,13 @@
                             <!-- DEBUG: removed -->
                         <acdh:hasPid>create</acdh:hasPid>
                         <acdh:hasTitle xml:lang="de">
-                            <xsl:value-of select="concat($subcollectionTitleBase, ' – Bearbeitete Bilder')"/>
+                            <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, ' (Bearbeitete Digitalisate)')"/>
                         </acdh:hasTitle>
+                        <acdh:hasUsedSoftware>Goobi Workflow</acdh:hasUsedSoftware>
+                        <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
                         <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool"/>
-                        <xsl:variable name="collectionDescription">
-                            <xsl:choose>
-                                <xsl:when test="$origDateDescription and string-length(normalize-space($origDateDescription))">
-                                    <xsl:value-of select="concat('Digitalisierte Seiten des Bandes ', $volumeLabel, ' – ', $origDateDescription)"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="concat('Digitalisierte Seiten des Bandes ', $volumeLabel)"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:variable>
                         <acdh:hasDescription xml:lang="de">
-                            <xsl:value-of select="$collectionDescription"/>
+                            <xsl:value-of select="$descriptionElements"/>
                         </acdh:hasDescription>
                         <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" /> 
                         <xsl:copy-of select="$coverageElements/*"/>
