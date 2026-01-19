@@ -10,7 +10,7 @@
 	    <acdh:hasDescription xml:lang="de">Die Sammlung enthaltet 289 digitalisierte Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768.</acdh:hasDescription>
         <acdh:hasContact rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
         <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
-        <acdh:hasDepositor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
         <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7"/>   
         <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
@@ -18,7 +18,7 @@
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/dschopper" />
         <acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1424-01-01</acdh:hasCoverageStartDate>
         <acdh:hasCoverageEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1767-12-31</acdh:hasCoverageEndDate>
-        <acdh:hasSubject xml:lang="de">Digitale Edition</acdh:hasSubject>
+        <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601020"/>
         <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601029"/>
@@ -48,14 +48,16 @@
     <acdh:Cols>
         <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/masters">
             <acdh:hasPid>create</acdh:hasPid>
-            <acdh:hasTitle xml:lang="de">Originalbilder</acdh:hasTitle>
+            <acdh:hasTitle xml:lang="de">Master-Scans</acdh:hasTitle>
             <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
-            <acdh:hasArrangement xml:lang="de">„Originalbilder“ enthält eine Sammlung für jeden Band</acdh:hasArrangement>
-            <!-- <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
+            <acdh:hasArrangement xml:lang="de">„Master-Scans“ enthält eine Sammlung für jeden Band</acdh:hasArrangement>
             <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <!-- <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
             <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-nc-nd-4-0" /> -->
-	    <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
-            <acdh:hasDescription xml:lang="de">Gescannte Bände der Oberkammeramtsrechnungsbücher der Stadt Wien (Originalbilder)</acdh:hasDescription>
+	        <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
+            <acdh:hasDescription xml:lang="de">Enthält die unbearbeiteten Digitalisate (Master-Scans) der Oberkammeramtsrechnungsbücher der Stadt Wien (1424 bis 1768)</acdh:hasDescription>
+            <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
             <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
             <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
@@ -65,14 +67,17 @@
         </acdh:Collection>
         <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/derivates">
             <acdh:hasPid>create</acdh:hasPid>
-            <acdh:hasArrangement xml:lang="de">„Bearbeitete Bilder“ enthält eine Sammlung für jeden Band</acdh:hasArrangement>
-            <acdh:hasTitle xml:lang="de">Bearbeitete Bilder</acdh:hasTitle>
+            <acdh:hasArrangement xml:lang="de">„Bearbeitete Digitalisate“ enthält eine Sammlung für jeden Band</acdh:hasArrangement>
+            <acdh:hasTitle xml:lang="de">Bearbeitete Digitalisate</acdh:hasTitle>
+            <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
             <!-- <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
             <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
-            <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
             <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-nc-nd-4-0" /> -->
-	    <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
-            <acdh:hasDescription xml:lang="de">Gescannten Bände der Oberkammeramtsrechnungsbücher der Stadt Wien (Bearbeitete Bilder)</acdh:hasDescription>
+            <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
+	        <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
+            <acdh:hasDescription xml:lang="de">Enthält die beschnittenen und geradegedrehten Digitalisate (Derivate) der Oberkammeramtsrechnungsbücher der Stadt Wien (1424 bis 1768).</acdh:hasDescription>
+            <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
+            <acdh:hasUsedSoftware>Goobi Workflow</acdh:hasUsedSoftware>
             <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
             <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
@@ -83,6 +88,7 @@
         <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/meta">
             <acdh:hasPid>create</acdh:hasPid>
                         <acdh:hasTitle xml:lang="de">Ergänzende Materialien</acdh:hasTitle>
+            <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>·
             <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
             <acdh:hasDescription xml:lang="de">XML-Schemas und Bilder</acdh:hasDescription>
             <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
@@ -97,6 +103,8 @@
             <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
             <acdh:hasPid>create</acdh:hasPid>
             <acdh:hasTitle xml:lang="de">XML-TEI-Editionen</acdh:hasTitle>
+            <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
             <acdh:hasDescription xml:lang="de">XML-TEI-Editionen der Oberkammeramtsrechnungsbücher der Stadt Wien</acdh:hasDescription>
             <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
             <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
@@ -131,7 +139,7 @@
 
     <!-- mandatory properties shared by acdh:Collection AND acdh:Resource -->
     <acdh:RepoObject>
-        <acdh:hasDepositor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
+        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
         <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:hasCurator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
@@ -171,7 +179,7 @@
         <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
         <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
         <acdh:hasDigitisingAgent rdf:resource="https://d-nb.info/gnd/2060831-7" />
-        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/none"/>
+        <acdh:hasRightsHolder rdf:resource="https://d-nb.info/gnd/2060831-7"/>
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/dschopper" />
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro" />
         <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0" />
@@ -183,7 +191,7 @@
         <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
         <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
         <acdh:hasDigitisingAgent rdf:resource="https://d-nb.info/gnd/2060831-7" />
-        <acdh:hasRightsHolder rdf:resource="https://id.acdh.oeaw.ac.at/none"/>
+        <acdh:hasRightsHolder rdf:resource="https://d-nb.info/gnd/2060831-7"/>
         <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0" />
         <!-- <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool" /> -->
         <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation>
