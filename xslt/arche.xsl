@@ -138,6 +138,11 @@
                 <xsl:variable name="origDateWhen" select="normalize-space(string($origDate/@when))"/>
                 <xsl:variable name="origDateNotBefore" select="normalize-space(string($origDate/@notBefore))"/>
                 <xsl:variable name="origDateNotAfter" select="normalize-space(string($origDate/@notAfter))"/>
+                <xsl:variable name="origDateFrom" select="normalize-space(string($origDate/@from))"/>
+                <xsl:variable name="origDateTo" select="normalize-space(string($origDate/@to))"/>
+                <!-- Fallback year source: TEI sourceDesc/bibl/date (many files have no msContents/origDate) -->
+                <xsl:variable name="biblDateRaw" select="normalize-space((.//tei:sourceDesc//tei:bibl/tei:date[1]/text(), .//tei:sourceDesc//tei:bibl/tei:date[1])[1])"/>
+                <xsl:variable name="biblYear" select="if (matches($biblDateRaw, '[0-9]{4}')) then replace($biblDateRaw, '^.*?([0-9]{4}).*$', '$1') else $biblDateRaw"/>
                 <xsl:variable name="contentDescriptionNodes" select=".//tei:msContents/tei:p[not(tei:origDate)]"/>
                 <xsl:variable name="origDateDescription" select="normalize-space(string-join($contentDescriptionNodes//text(), ' '))"/>
                 <xsl:variable name="shelfmark" select="concat('AT-WSTLA ', normalize-space(string((.//tei:teiHeader/tei:fileDesc/tei:sourceDesc//tei:msIdentifier/tei:idno[@type='shelfmark'])[1])))"/>
@@ -150,9 +155,9 @@
                 <xsl:variable name="kaemmerer" select="if ($kaemmererRespText = '(Ober)kämmerer') then 'Oberkämmerer' else if (string-length($kaemmererRespText) &gt; 0) then 'Kämmerer' else ''"/>
                 <xsl:variable name="kaemmererName" select="normalize-space(($selectedKaemmererRespStmt/tei:persName)[1])"/>
                 <xsl:variable name="origDateYear" select="if ($origDateWhen and matches($origDateWhen, '^-?\d{4}')) then replace($origDateWhen, '^(-?\d{4}).*$', '$1') else ''"/>
-                <xsl:variable name="startYear" select="if ($origDateNotBefore and matches($origDateNotBefore, '^-?\d{4}')) then replace($origDateNotBefore, '^(-?\d{4}).*$', '$1') else ''"/>
-                <xsl:variable name="endYear" select="if ($origDateNotAfter and matches($origDateNotAfter, '^-?\d{4}')) then replace($origDateNotAfter, '^(-?\d{4}).*$', '$1') else ''"/>
-                <xsl:variable name="coverageIdentifierYear" select="if (string-length($origDateYear) &gt; 0) then $origDateYear else if (string-length($startYear) &gt; 0 and string-length($endYear) &gt; 0 and $startYear = $endYear) then $startYear else if (string-length($startYear) &gt; 0) then $startYear else $endYear"/>
+                <xsl:variable name="startYear" select="if ($origDateNotBefore and matches($origDateNotBefore, '^-?\d{4}')) then replace($origDateNotBefore, '^(-?\d{4}).*$', '$1') else if ($origDateFrom and matches($origDateFrom, '^-?\d{4}')) then replace($origDateFrom, '^(-?\d{4}).*$', '$1') else ''"/>
+                <xsl:variable name="endYear" select="if ($origDateNotAfter and matches($origDateNotAfter, '^-?\d{4}')) then replace($origDateNotAfter, '^(-?\d{4}).*$', '$1') else if ($origDateTo and matches($origDateTo, '^-?\d{4}')) then replace($origDateTo, '^(-?\d{4}).*$', '$1') else ''"/>
+                <xsl:variable name="coverageIdentifierYear" select="if (string-length($origDateYear) &gt; 0) then $origDateYear else if (string-length($startYear) &gt; 0 and string-length($endYear) &gt; 0 and $startYear = $endYear) then $startYear else if (string-length($startYear) &gt; 0) then $startYear else if (string-length($endYear) &gt; 0) then $endYear else if (normalize-space($biblYear)) then $biblYear else ''"/>
                 <xsl:variable name="coverageIdentifierUri" select="if (string-length($coverageIdentifierYear) &gt; 0 and $coverageIdentifierYear castable as xs:integer and xs:integer($coverageIdentifierYear) &gt;= 1500) then 'https://n2t.net/ark:/99152/p0qhb66' else 'https://n2t.net/ark:/99152/p0qhb66'"/>
                 <xsl:variable name="coverageElements">
                     <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
@@ -163,7 +168,7 @@
                             </acdh:hasTemporalCoverage>
                         </xsl:when>
                         <xsl:when test="$startYear and $endYear and $startYear = $endYear">
-                            <acdh:hasTemporalCoverage>
+                            <acdh:hasTemporalCoverage xml:lang="und">
                                 <xsl:value-of select="$startYear"/>
                             </acdh:hasTemporalCoverage>
                         </xsl:when>
@@ -173,9 +178,19 @@
                                     <xsl:value-of select="$origDateNotBefore"/>
                                 </acdh:hasCoverageStartDate>
                             </xsl:if>
+                            <xsl:if test="not($origDateNotBefore) and $origDateFrom">
+                                <acdh:hasCoverageStartDate>
+                                    <xsl:value-of select="$origDateFrom"/>
+                                </acdh:hasCoverageStartDate>
+                            </xsl:if>
                             <xsl:if test="$origDateNotAfter">
                                 <acdh:hasCoverageEndDate>
                                     <xsl:value-of select="$origDateNotAfter"/>
+                                </acdh:hasCoverageEndDate>
+                            </xsl:if>
+                            <xsl:if test="not($origDateNotAfter) and $origDateTo">
+                                <acdh:hasCoverageEndDate>
+                                    <xsl:value-of select="$origDateTo"/>
                                 </acdh:hasCoverageEndDate>
                             </xsl:if>
                         </xsl:otherwise>
@@ -235,8 +250,6 @@
                 <xsl:variable name="teiTitleMain" select="normalize-space((.//tei:titleStmt/tei:title[@type='main'][@level='a'][@xml:lang='de'], .//tei:titleStmt/tei:title[@type='main'][@level='a'], .//tei:titleStmt/tei:title[@type='main'][@xml:lang='de'], .//tei:titleStmt/tei:title[@type='main'])[1])"/>
                 <xsl:variable name="teiTitleDesc" select="normalize-space((.//tei:titleStmt/tei:title[@type='desc'][@level='a'][@xml:lang='de'], .//tei:titleStmt/tei:title[@type='desc'][@level='a'], .//tei:titleStmt/tei:title[@type='desc'][@xml:lang='de'], .//tei:titleStmt/tei:title[@type='desc'])[1])"/>
                 <xsl:variable name="teiTitleCandidate" select="if (string-length($teiTitleMain) &gt; 0) then $teiTitleMain else if (string-length($teiTitleDesc) &gt; 0) then $teiTitleDesc else $volumeId"/>
-                <xsl:variable name="biblDateRaw" select="normalize-space((.//tei:sourceDesc//tei:bibl/tei:date[1]/text(), .//tei:sourceDesc//tei:bibl/tei:date[1])[1])"/>
-                <xsl:variable name="biblYear" select="if (matches($biblDateRaw, '[0-9]{4}')) then replace($biblDateRaw, '^.*?([0-9]{4}).*$', '$1') else $biblDateRaw"/>
                 <xsl:variable name="shelfmarkDigits" select="if ($shelfmark and matches($shelfmark, '[0-9]+$')) then replace($shelfmark, '^.*?([0-9]+)$', '$1') else ''"/>
                 <xsl:variable name="selfNumber" select="if (matches($teiTitleCandidate, '^[0-9]+$')) then $teiTitleCandidate else $shelfmarkDigits"/>
                 <xsl:variable name="volumeTitleBase">
@@ -246,10 +259,10 @@
                             <xsl:variable name="yearForFallback" select="replace($yearForFallbackRaw, '^.*?([0-9]{4}).*$', '$1')"/>
                             <xsl:choose>
                                 <xsl:when test="matches($yearForFallback, '[0-9]{4}')">
-                                    <xsl:value-of select="concat('Kammeramtsrechnung ', $yearForFallback, ' (', $teiTitleCandidate, ')')"/>
+                                    <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $yearForFallback, ' (', $teiTitleCandidate, ')')"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="concat('Kammeramtsrechnung (', $teiTitleCandidate, ')')"/>
+                                    <xsl:value-of select="concat('Oberkammeramtsrechnung (', $teiTitleCandidate, ')')"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:when>
@@ -431,27 +444,8 @@
                     <xsl:for-each select="$graphicsSorted">
                         <xsl:variable name="graphicUrl" select="string(@url)"/>
                         <xsl:variable name="graphicFilename" select="replace(replace($graphicUrl, '^.*[\\/]', ''), '^[\\./]+', '')"/>
-                        <xsl:variable name="imageNumberRaw">
-                            <xsl:choose>
-                                <xsl:when test="matches($graphicFilename, '_(\d+)\.[^\.]+$')">
-                                    <xsl:value-of select="replace($graphicFilename, '^.*_(\d+)\.[^\.]+$', '$1')"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="replace($graphicFilename, '\.[^\.]+$', '')"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:variable>
-                        <xsl:variable name="imageNumber">
-                            <xsl:choose>
-                                <xsl:when test="$imageNumberRaw castable as xs:integer">
-                                    <xsl:value-of select="string(xs:integer($imageNumberRaw))"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:variable name="trimmed" select="replace($imageNumberRaw, '^0+', '')"/>
-                                    <xsl:value-of select="if (string-length($trimmed) &gt; 0) then $trimmed else '0'"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:variable>
+                        <!-- Use position() for sequential page numbering with zero-padding to 3 digits -->
+                        <xsl:variable name="imageNumber" select="format-number(position(), '000')"/>
                         <xsl:variable name="effectiveId" select="concat($volumeCol, '/', encode-for-uri($graphicFilename))"/>
                         <xsl:variable name="effectiveIdbis" select="concat($volumeColBis, '/', encode-for-uri($graphicFilename))"/>
                         <xsl:variable name="width" select="string(@width)"/>
@@ -488,7 +482,7 @@
                             <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
                             <acdh:hasFormat>image/tiff</acdh:hasFormat>
                             <acdh:hasTitle xml:lang="de">
-                                <xsl:value-of select="concat($volumeLabel, ' – ', $imageNumber, ' (Originalbild)')"/>
+                                <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, ' (Master-Scan) – ', $imageNumber)"/>
                             </acdh:hasTitle>
                             <!-- <acdh:hasUrl>
                                 <xsl:value-of select="$graphicUrl"/>
@@ -515,7 +509,7 @@
                             <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
                             <acdh:hasFormat>image/tiff</acdh:hasFormat>
                             <acdh:hasTitle xml:lang="de">
-                                <xsl:value-of select="concat($volumeLabel, ' – ', $imageNumber)"/>
+                                <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, ' (Bearbeitetes Digitalisat) – ', $imageNumber)"/>
                             </acdh:hasTitle>
                             <!-- <acdh:hasUrl>
                                 <xsl:value-of select="$graphicUrl"/>
