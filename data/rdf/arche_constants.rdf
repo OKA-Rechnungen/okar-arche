@@ -4,10 +4,10 @@
     <acdh:Constanst>
         <acdh:DefaultLang>de</acdh:DefaultLang>
     </acdh:Constanst>
-    <acdh:TopCollection rdf:about="https://id.acdh.oeaw.ac.at/okar">
+    <acdh:TopCollection rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien">
         <acdh:hasPid>create</acdh:hasPid>
 	    <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnungsbücher der Stadt Wien</acdh:hasTitle> 
-	    <acdh:hasDescription xml:lang="de">Die Sammlung enthaltet 289 digitalisierte Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768.</acdh:hasDescription>
+	    <acdh:hasDescription xml:lang="de">Die Sammlung enthält 289 digitalisierte Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768. Die Digitalisierung und Tiefenerschließung erfolgte 2024–2026 am Wiener Stadt- und Landesarchiv sowie am Austrian Centre for Digital Humanities im Projekt „Digitale Erschließung der Oberkammeramtsrechnungen der Stadt Wien“, gefördert durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport im Förderprogramm „Kulturerbe digital“ und finanziert aus EU.</acdh:hasDescription>
         <acdh:hasContact rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
         <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
         <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
@@ -26,9 +26,9 @@
         <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601029"/>
         <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/605007"/>
         <acdh:hasNamingScheme xml:lang="de">Bilddateien sind als „WSTLA-OKA-B1-1-[001-289]-[1-2]_[001-999].tif” und XML-TEI-Dateien sind als „WSTLA-OKA-B1-1-[001-289]-[1-2].xml” benannt.</acdh:hasNamingScheme>
-        <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
+        <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
         <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
-        <acdh:hasArrangement xml:lang="de">OKAR enthält die Sammlungen „Originalbilder“ und „Bearbeitete Bilder“ mit Untersammlungen von Bildern für jeden Band. Die Sammlung „XML-Editionen“ enthält XML-TEI-Editionen der Bände und die Sammlung „Ergänzende Materialien“ enthält diverse Dateien.</acdh:hasArrangement>
+        <acdh:hasArrangement xml:lang="de">OKAR enthält die Sammlungen „Master-Scans“ und „Bearbeitete Digitalisate“ mit Untersammlungen von Bildern für jeden Band. Die Sammlung „XML-Editionen“ enthält XML-TEI-Editionen der Bände und die Sammlung „Ergänzende Materialien“ enthält diverse Dateien.</acdh:hasArrangement>
         <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
         <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
         <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
@@ -49,7 +49,7 @@
         <acdh:hasCustomCitation>editor = {Wiener Stadt- und Landesarchiv and Klugseder, Robert}</acdh:hasCustomCitation>
     </acdh:TopCollection>
     <acdh:Cols>
-        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/masters">
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters">
             <acdh:hasPid>create</acdh:hasPid>
             <acdh:hasTitle xml:lang="de">Master-Scans</acdh:hasTitle>
             <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
@@ -61,14 +61,14 @@
 	        <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
             <acdh:hasDescription xml:lang="de">Enthält die unbearbeiteten Digitalisate (Master-Scans) der Oberkammeramtsrechnungsbücher der Stadt Wien (1424 bis 1768)</acdh:hasDescription>
             <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
-            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
-            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
             <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
             <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
         </acdh:Collection>
-        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/derivates">
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates">
             <acdh:hasPid>create</acdh:hasPid>
             <acdh:hasArrangement xml:lang="de">„Bearbeitete Digitalisate“ enthält eine Sammlung für jeden Band</acdh:hasArrangement>
             <acdh:hasTitle xml:lang="de">Bearbeitete Digitalisate</acdh:hasTitle>
@@ -81,36 +81,56 @@
             <acdh:hasDescription xml:lang="de">Enthält die beschnittenen und geradegedrehten Digitalisate (Derivate) der Oberkammeramtsrechnungsbücher der Stadt Wien (1424 bis 1768).</acdh:hasDescription>
             <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
             <acdh:hasUsedSoftware>Goobi Workflow</acdh:hasUsedSoftware>
-            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
-            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
             <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
             <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
         </acdh:Collection>
-        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/meta">
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/meta">
             <acdh:hasPid>create</acdh:hasPid>
                         <acdh:hasTitle xml:lang="de">Ergänzende Materialien</acdh:hasTitle>
             <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>·
             <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
             <acdh:hasDescription xml:lang="de">XML-Schemas und Bilder</acdh:hasDescription>
-            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
-            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
             <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
             <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
         </acdh:Collection>
-        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/okar/editions">
+        <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions">
             <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
             <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
             <acdh:hasPid>create</acdh:hasPid>
             <acdh:hasTitle xml:lang="de">XML-TEI-Editionen</acdh:hasTitle>
-            <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh" />
             <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
-            <acdh:hasDescription xml:lang="de">XML-TEI-Editionen der Oberkammeramtsrechnungsbücher der Stadt Wien</acdh:hasDescription>
-            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/completed"/>
-            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar"/>
+            <acdh:hasDescription xml:lang="de">Die Sammlung enthält XML-TEI Editionen der Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768</acdh:hasDescription>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
+            <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
+            <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
+        </acdh:Collection>
+         <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pages">
+            <acdh:hasPid>create</acdh:hasPid>
+            <acdh:hasTitle xml:lang="de">PAGE-XML-Dateien</acdh:hasTitle>
+            <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <!-- <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
+            <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-nc-nd-4-0" /> -->
+            <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
+	        <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
+            <acdh:hasDescription xml:lang="de">Die Sammlung enthält die mit Tranksribus generierten bzw. korrigierten Volltexte der digitalisierte Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768.</acdh:hasDescription>
+            <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
+            <acdh:hasUsedSoftware>Transkribus</acdh:hasUsedSoftware>
+            <acdh:hasAppliedMethodDescription>Generiert mit Transkribus sowie Korrektur ausgewählter Seiten. (Automatische Layouterkennung mit Modell XXX. Automatische Texterkennung mit Modell XXX)</acdh:hasAppliedMethodDescription>
+            <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
+            <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
             <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion" />
@@ -174,7 +194,7 @@
         <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
         <acdh:hasCreatedStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-17</acdh:hasCreatedStartDate>
         <acdh:hasCreatedEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-18</acdh:hasCreatedEndDate>
-        <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar/meta"/>
+        <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/meta"/>
         <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
     </acdh:MetaObject>
     <acdh:EditionObject>
@@ -191,7 +211,7 @@
         <acdh:hasFormat>application/xml</acdh:hasFormat>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei" />
-        <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/okar/editions"/>
+        <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions"/>
         <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
     </acdh:EditionObject>
      <acdh:DerivateObject>
@@ -204,6 +224,7 @@
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/dschopper" />
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro" />
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/jveitschegger" />
+        <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/mvigl" />
         <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0" />
         <!-- <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool" />
         <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation> -->
