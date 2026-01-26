@@ -161,7 +161,9 @@
                 <xsl:variable name="coverageIdentifierUri" select="if (string-length($coverageIdentifierYear) &gt; 0 and $coverageIdentifierYear castable as xs:integer and xs:integer($coverageIdentifierYear) &gt;= 1500) then 'https://n2t.net/ark:/99152/p0qhb66' else 'https://n2t.net/ark:/99152/p0qhb66'"/>
                 <xsl:variable name="coverageElements">
                     <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
-                    <xsl:choose>
+                    <acdh:hasSchema rdf:resource="https://id.acdh.oeaw.ac.at/okar/schema.odd"/>
+		    <acdh:hasSchema rdf:resource="https://id.acdh.oeaw.ac.at/okar/schema.rng"/>
+	            <xsl:choose>
                         <xsl:when test="$origDateYear">
                             <acdh:hasTemporalCoverage xml:lang="und">
                                 <xsl:value-of select="$origDateYear"/>
@@ -277,6 +279,9 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
+               <acdh:isObjectMetadataFor rdf:about="concat('https://id.acdh.oeaw.ac.at/okar/masters/',$volumeId)" />
+               <acdh:isObjectMetadataFor rdf:about="concat('https://id.acdh.oeaw.ac.at/okar/derivates/',$volumeId)" />
+        
                 <xsl:variable name="volumeLabel" select="normalize-space(string($volumeTitleBase))"/>
                 <!-- descriptionElements for xml-tei resources with kämmerer info -->
                 <xsl:variable name="descriptionElements">
@@ -307,10 +312,8 @@
                     <acdh:hasTitle xml:lang="de">
                         <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, ' (XML-TEI Edition)')"/>
                     </acdh:hasTitle>
-                    <acdh:isObjectMetadataFor>
                     <acdh:isObjectMetadataFor rdf:resource="{$Derivates}/{$volumeId}"/>
                     <acdh:isObjectMetadataFor rdf:resource="{$Facsimiles}/{$volumeId}"/>
-		    </acdh:isObjectMetadataFor>
                     <xsl:copy-of select="$coverageElements/*"/>
                     <xsl:copy-of select="$coverageIdentifierElements/*"/>
                     <acdh:hasDescription xml:lang="de">
