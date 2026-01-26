@@ -36,7 +36,6 @@
 
         <!-- NOTE: We do not chain top-level collections with hasNextItem.
              ARCHE validation expects collections to use hasNextItem to point to their first child. -->
-
         <!-- ARCHE requires acdh:hasNextItem for Kulturpool Collections.
              Instead of minting artificial "end" resources, loop the last volume collection
              back to the first volume collection. -->
