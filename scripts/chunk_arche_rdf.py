@@ -5,8 +5,9 @@ Goal
 ----
 Split a large RDF/XML file like `arche/html/arche.rdf` into:
 - one file per *immediate* subcollection of:
-  - https://id.acdh.oeaw.ac.at/okar/masters
-  - https://id.acdh.oeaw.ac.at/okar/derivates
+    - https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters
+    - https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates
+    - https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml
   including all resources whose `rdf:about` starts with that subcollection URI, and
 - one additional file (`rest.rdf`) containing everything else.
 
@@ -45,8 +46,9 @@ ET.register_namespace("acdh", ACDH_NS)
 
 RDF_ABOUT = f"{{{RDF_NS}}}about"
 
-MASTERS_ROOT = "https://id.acdh.oeaw.ac.at/okar/masters"
-DERIVATES_ROOT = "https://id.acdh.oeaw.ac.at/okar/derivates"
+MASTERS_ROOT = "https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters"
+DERIVATES_ROOT = "https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates"
+PAGEXML_ROOT = "https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml"
 
 
 def _safe_filename(name: str) -> str:
@@ -58,13 +60,17 @@ def _safe_filename(name: str) -> str:
 
 
 def _chunk_key_from_about(about: str) -> Optional[Tuple[str, str]]:
-    """Return (kind, sub_id) for masters/derivates items, else None.
+    """Return (kind, sub_id) for masters/derivates/pagexml items, else None.
 
-    kind is one of: 'masters', 'derivates'
+    kind is one of: 'masters', 'derivates', 'pagexml'
     sub_id is the immediate segment after the root.
     """
 
-    for kind, root in (("masters", MASTERS_ROOT), ("derivates", DERIVATES_ROOT)):
+    for kind, root in (
+        ("masters", MASTERS_ROOT),
+        ("derivates", DERIVATES_ROOT),
+        ("pagexml", PAGEXML_ROOT),
+    ):
         prefix = root.rstrip("/") + "/"
         if about.startswith(prefix):
             rest = about[len(prefix) :]
@@ -116,7 +122,13 @@ def chunk_rdf(input_path: Path, output_dir: Path) -> Dict[str, int]:
     rest_path = output_dir / "rest.rdf"
 
     # Keep minimal stats.
-    counts: Dict[str, int] = {"rest": 0, "masters": 0, "derivates": 0, "total": 0}
+    counts: Dict[str, int] = {
+        "rest": 0,
+        "masters": 0,
+        "derivates": 0,
+        "pagexml": 0,
+        "total": 0,
+    }
 
     # Prefer lxml for huge files (safer streaming + parent access).
     try:
@@ -134,7 +146,7 @@ def chunk_rdf(input_path: Path, output_dir: Path) -> Dict[str, int]:
             counts["total"] += 1
 
             chunk_key = _chunk_key_from_about(about)
-            if chunk_key is None or about in (MASTERS_ROOT, DERIVATES_ROOT):
+            if chunk_key is None or about in (MASTERS_ROOT, DERIVATES_ROOT, PAGEXML_ROOT):
                 writer.append_element(rest_path, elem, tostring=tostring)
                 counts["rest"] += 1
             else:
@@ -167,7 +179,7 @@ def chunk_rdf(input_path: Path, output_dir: Path) -> Dict[str, int]:
             counts["total"] += 1
 
             chunk_key = _chunk_key_from_about(about)
-            if chunk_key is None or about in (MASTERS_ROOT, DERIVATES_ROOT):
+            if chunk_key is None or about in (MASTERS_ROOT, DERIVATES_ROOT, PAGEXML_ROOT):
                 writer.append_element(rest_path, elem, tostring=ET.tostring)
                 counts["rest"] += 1
             else:
@@ -214,6 +226,7 @@ def main(argv: Optional[Iterable[str]] = None) -> int:
     print("  total     ", stats["total"])
     print("  masters   ", stats["masters"])
     print("  derivates ", stats["derivates"])
+    print("  pagexml   ", stats["pagexml"])
     print("  rest      ", stats["rest"])
     return 0
 
