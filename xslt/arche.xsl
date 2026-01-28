@@ -364,12 +364,16 @@
                     <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
                     <acdh:isPartOf rdf:resource="{$Editions}"/>
                     <acdh:hasTitle xml:lang="de">
-                        <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, $romanSuffix, ' (TEI-XML Edition)')"/>
+                        <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, $romanSuffix, ' (TEI-XML-Edition)')"/>
                     </acdh:hasTitle>
-                    <acdh:hasSchema rdf:resource="{$TopColId}/schema.odd"/>
-                    <acdh:hasSchema rdf:resource="{$TopColId}/schema.rng"/>
-                    <acdh:isObjectMetadataFor rdf:resource="{$Derivates}/{$volumeId}"/>
-                    <acdh:isObjectMetadataFor rdf:resource="{$Facsimiles}/{$volumeId}"/>
+                    <acdh:hasSchema xml:lang="und">
+                         <xsl:value-of select="$TopColId/schema.odd" />
+                    </acdh:hasSchema>
+                    <acdh:hasSchema xml:lang="und">
+                        <xsl:value-of select="$TopColId/schema.rng" />
+                   </acdh:hasSchema>
+                    <!-- <acdh:isObjectMetadataFor rdf:resource="{$Derivates}/{$volumeId}"/>
+                    <acdh:isObjectMetadataFor rdf:resource="{$Facsimiles}/{$volumeId}"/> -->
                     <xsl:copy-of select="$coverageElements/*"/>
                     <xsl:copy-of select="$coverageIdentifierElements/*"/>
                     <acdh:hasDescription xml:lang="de">
@@ -531,7 +535,7 @@
                         <acdh:Collection rdf:about="{$pageXmlColUri}">
                             <acdh:hasPid>create</acdh:hasPid>
                             <acdh:hasTitle xml:lang="de">
-                                <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE XML)')"/>
+                                <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE-XML-Bechreibungen)')"/>
                             </acdh:hasTitle>
                             <acdh:hasUsedSoftware>Transkribus</acdh:hasUsedSoftware>
                             <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -567,7 +571,7 @@
                                 <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
                                 <acdh:hasFormat>application/xml</acdh:hasFormat>
                                 <acdh:hasTitle xml:lang="de">
-                                    <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $pageYear, $pageRomanSuffix, ' (PAGE XML) – ', $pageNumber)"/>
+                                    <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $pageYear, $pageRomanSuffix, ' (PAGE-XML-Beschreibung) – ', $pageNumber)"/>
                                 </acdh:hasTitle>
                                 <acdh:hasAppliedMethodDescription xml:lang="de">
                                     <xsl:value-of select="$resourceMethodDesc"/>
@@ -674,7 +678,7 @@
                 <xsl:copy-of select="$constantsMeta"/>
             </acdh:Resource>
             <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/schema.odd">
-                <acdh:hasTitle xml:lang="de">TEI-XML Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
+                <acdh:hasTitle xml:lang="de">TEI-XML-Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <acdh:hasDescription xml:lang="de">XML/TEI Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
