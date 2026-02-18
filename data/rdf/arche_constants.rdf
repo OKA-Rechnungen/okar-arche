@@ -10,7 +10,7 @@
 	    <acdh:hasDescription xml:lang="de">Die Sammlung enthält 289 digitalisierte Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768. Die Digitalisierung und Tiefenerschließung erfolgte 2024–2026 am Wiener Stadt- und Landesarchiv sowie am Austrian Centre for Digital Humanities im Projekt „Digitale Erschließung der Oberkammeramtsrechnungen der Stadt Wien“, gefördert durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport im Förderprogramm „Kulturerbe digital“ und finanziert aus EU.</acdh:hasDescription>
         <acdh:hasContact rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
         <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
-        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
+        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/1147709149"/>
         <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7"/>   
         <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
@@ -180,7 +180,7 @@
 
     <!-- mandatory properties shared by acdh:Collection AND acdh:Resource -->
     <acdh:RepoObject>
-        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
+        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/1147709149"/>
         <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:hasCurator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
@@ -198,7 +198,7 @@
         <acdh:hasCreatedStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-17</acdh:hasCreatedStartDate>
         <acdh:hasCreatedEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-18</acdh:hasCreatedEndDate>
         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/meta"/>
-        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc0-1-0"/>
     </acdh:MetaObject>
     <acdh:EditionObject>
         <acdh:hasLicensor rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
@@ -215,7 +215,7 @@
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei" />
         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
-        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc0-1-0"/>
     </acdh:EditionObject>
     <acdh:PageObject>
         <acdh:hasLicensor rdf:resource="https://id.acdh.oeaw.ac.at/acdh"/>
@@ -227,7 +227,7 @@
         <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml"/>
-        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc0-1-0"/>
     </acdh:PageObject>
      <acdh:DerivateObject>
         <acdh:hasLicensor rdf:resource="https://d-nb.info/gnd/2060831-7" />
@@ -240,7 +240,7 @@
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro" />
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/jveitschegger" />
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/mvigl" />
-        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0" />
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-nc-4-0" />
         <!-- <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool" />
         <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation> -->
     </acdh:DerivateObject>
@@ -250,7 +250,7 @@
         <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
         <acdh:hasDigitisingAgent rdf:resource="https://d-nb.info/gnd/2060831-7" />
         <acdh:hasRightsHolder rdf:resource="https://d-nb.info/gnd/2060831-7"/>
-        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0" />
+        <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-nc-4-0" />
         <!-- <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool" /> -->
         <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation>
     </acdh:ImgObject>
