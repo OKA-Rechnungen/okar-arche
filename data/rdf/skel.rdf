@@ -44,7 +44,7 @@
       </acdh:Organisation>
    </acdh:MetaAgents>
 
-   <acdh:TopCollection rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien">
+   <acdh:TopCollection rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien">
       <acdh:hasPid>create</acdh:hasPid>
       <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnungsbücher der Stadt Wien</acdh:hasTitle>
       <acdh:hasDescription xml:lang="de">Die Sammlung enthält 289 digitalisierte Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768. Die Digitalisierung und Tiefenerschließung erfolgte 2024–2026 am Wiener Stadt- und Landesarchiv sowie am Austrian Centre for Digital Humanities im Projekt „Digitale Erschließung der Oberkammeramtsrechnungen der Stadt Wien“, gefördert durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport im Förderprogramm „Kulturerbe digital“ und finanziert aus EU.</acdh:hasDescription>
@@ -95,7 +95,7 @@
    </acdh:TopCollection>
 
      <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#"
-                    rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters">
+                    rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/masters">
       <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
       <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -115,14 +115,14 @@
       <acdh:hasDescription xml:lang="de">Enthält die unbearbeiteten Digitalisate (Master-Scans) der Oberkammeramtsrechnungsbücher der Stadt Wien (1424 bis 1768)</acdh:hasDescription>
       <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
       <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
    </acdh:Collection>
    <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#"
-                    rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates">                                                                                                                                                           
+                    rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/derivates">                                                                                                                                                           
       <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
       <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -142,14 +142,14 @@
       <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
       <acdh:hasUsedSoftware>Goobi Workflow</acdh:hasUsedSoftware>
       <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
    </acdh:Collection>
        <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#"
-                    rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/meta">                                                                                                                                                                
+                    rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/meta">                                                                                                                                                                
       <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
@@ -167,14 +167,14 @@
       <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasDescription xml:lang="de">XML-Schemas und Bilder</acdh:hasDescription>
       <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
    </acdh:Collection>
        <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#"
-                    rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions">
+                    rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions">
       <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
       <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -193,14 +193,14 @@
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
       <acdh:hasDescription xml:lang="de">Die Sammlung enthält TEI-XML Editionen der Oberkammeramtsrechnungsbücher der Stadt Wien aus der Zeit von 1424 bis 1768</acdh:hasDescription>
       <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
    </acdh:Collection>
         <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#"
-                    rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml">                                                                                                                                                             
+                    rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml">                                                                                                                                                             
       <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
       <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -220,14 +220,14 @@
       <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
       <acdh:hasUsedSoftware>Transkribus</acdh:hasUsedSoftware>
       <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
       <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/europeanunion"/>
       <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/EU_nextgen.png</acdh:hasFunderLogo>
    </acdh:Collection>
 
-      <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters/WSTLA-OKA-B1-1-001-1">
+      <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/masters/WSTLA-OKA-B1-1-001-1">
          <acdh:hasPid>create</acdh:hasPid>
          <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnung | 1424 (Master-Scans)</acdh:hasTitle>
          <acdh:hasDescription xml:lang="de">Oberkämmerer: Alex Schernhaimer
@@ -238,7 +238,7 @@
          <acdh:hasTemporalCoverage xml:lang="und">1424</acdh:hasTemporalCoverage>
          <acdh:hasTemporalCoverageIdentifier>https://n2t.net/ark:/99152/p0qhb66</acdh:hasTemporalCoverageIdentifier>
          <acdh:hasNonLinkedIdentifier>AT-WSTLA 1.1.1.B1/1.1</acdh:hasNonLinkedIdentifier>
-         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters"/>
+         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/masters"/>
          <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
          <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
          <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -256,7 +256,7 @@
          <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0"/>
          <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation>
       </acdh:Collection>
-      <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates/WSTLA-OKA-B1-1-001-1">
+      <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/derivates/WSTLA-OKA-B1-1-001-1">
          <acdh:hasPid>create</acdh:hasPid>
          <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnung | 1424 (Bearbeitete Digitalisate)</acdh:hasTitle>
          <acdh:hasUsedSoftware>Goobi Workflow</acdh:hasUsedSoftware>
@@ -269,7 +269,7 @@
          <acdh:hasTemporalCoverage xml:lang="und">1424</acdh:hasTemporalCoverage>
          <acdh:hasTemporalCoverageIdentifier>https://n2t.net/ark:/99152/p0qhb66</acdh:hasTemporalCoverageIdentifier>
          <acdh:hasNonLinkedIdentifier>AT-WSTLA 1.1.1.B1/1.1</acdh:hasNonLinkedIdentifier>
-         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates"/>
+         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/derivates"/>
          <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
          <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
          <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -291,7 +291,7 @@
          <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/mvigl"/>
          <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0"/>
       </acdh:Collection>
-      <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml/WSTLA-OKA-B1-1-001-1">
+      <acdh:Collection xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml/WSTLA-OKA-B1-1-001-1">
          <acdh:hasPid>create</acdh:hasPid>
          <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnung | 1424 (PAGE XML)</acdh:hasTitle>
          <acdh:hasUsedSoftware>Transkribus</acdh:hasUsedSoftware>
@@ -305,7 +305,7 @@
          <acdh:hasTemporalCoverage xml:lang="und">1424</acdh:hasTemporalCoverage>
          <acdh:hasTemporalCoverageIdentifier>https://n2t.net/ark:/99152/p0qhb66</acdh:hasTemporalCoverageIdentifier>
          <acdh:hasNonLinkedIdentifier>AT-WSTLA 1.1.1.B1/1.1</acdh:hasNonLinkedIdentifier>
-         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml"/>
+         <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml"/>
          <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
          <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
          <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -326,9 +326,9 @@
          <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
       </acdh:Collection>
 
-   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions/WSTLA-OKA-B1-1-001-1.xml">
+   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions/WSTLA-OKA-B1-1-001-1.xml">
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
       <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnung | 1424 (TEI-XML Edition)</acdh:hasTitle>
       <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
       <acdh:hasTemporalCoverage xml:lang="und">1424</acdh:hasTemporalCoverage>
@@ -359,15 +359,15 @@
       <acdh:hasFormat>application/xml</acdh:hasFormat>
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
       <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text/tei"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
       <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
    </acdh:Resource>
 
-   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/logo_okar.png">
+   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png">
       <acdh:hasTitle xml:lang="de">Logo von „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
       <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/image"/>
       <acdh:hasFormat>image/png</acdh:hasFormat>
-      <acdh:isTitleImageOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+      <acdh:isTitleImageOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
       <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
       <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
@@ -383,14 +383,14 @@
       <acdh:hasCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
       <acdh:hasCreatedStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-17</acdh:hasCreatedStartDate>
       <acdh:hasCreatedEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-11-18</acdh:hasCreatedEndDate>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/meta"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/meta"/>
       <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/>
    </acdh:Resource>
 
-   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters/WSTLA-OKA-B1-1-001-1/WSTLA-OKA-B1-1-001-1_00001.tif">
+   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/masters/WSTLA-OKA-B1-1-001-1/WSTLA-OKA-B1-1-001-1_00001.tif">
       <acdh:hasPid>create</acdh:hasPid>
       <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/image"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters/WSTLA-OKA-B1-1-001-1"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/masters/WSTLA-OKA-B1-1-001-1"/>
       <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
       <acdh:hasFormat>image/tiff</acdh:hasFormat>
       <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnung | 1424 (Master-Scan) – 001</acdh:hasTitle>
@@ -412,10 +412,10 @@
       <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0"/>
       <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation>
    </acdh:Resource>
-   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates/WSTLA-OKA-B1-1-001-1/WSTLA-OKA-B1-1-001-1_00001.tif">
+   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/derivates/WSTLA-OKA-B1-1-001-1/WSTLA-OKA-B1-1-001-1_00001.tif">
       <acdh:hasPid>create</acdh:hasPid>
       <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/image"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates/WSTLA-OKA-B1-1-001-1"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/derivates/WSTLA-OKA-B1-1-001-1"/>
       <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
       <acdh:hasFormat>image/tiff</acdh:hasFormat>
       <acdh:hasTitle xml:lang="de">Oberkammeramtsrechnung | 1424 (Bearbeitetes Digitalisat) – 001</acdh:hasTitle>
@@ -437,11 +437,11 @@
       <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/publicdomain-1-0"/>
       <acdh:hasRightsInformation xml:lang="en">The works are public domain, the license applies to the potential related rights.</acdh:hasRightsInformation>
    </acdh:Resource>
-   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml/WSTLA-OKA-B1-1-001-1/WSTLA-OKA-B1-1-001-1_00001.xml">
+   <acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml/WSTLA-OKA-B1-1-001-1/WSTLA-OKA-B1-1-001-1_00001.xml">
       <acdh:hasPid>create</acdh:hasPid>
       <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text"/>
-      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml/WSTLA-OKA-B1-1-001-1"/>
-      <acdh:isSourceOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions/WSTLA-OKA-B1-1-001-1.xml"/>
+      <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml/WSTLA-OKA-B1-1-001-1"/>
+      <acdh:isSourceOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions/WSTLA-OKA-B1-1-001-1.xml"/>
       <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
       <acdh:hasFormat>application/xml</acdh:hasFormat>
       <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
