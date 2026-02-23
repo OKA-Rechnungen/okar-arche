@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#">
+
+
+<acdh:Resource xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#" rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/WSTLA-OKA-B1-1-083-1_004.tif">
+    <acdh:isSourceOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png" />
+</acdh:Resource>

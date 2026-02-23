@@ -82,7 +82,7 @@
              Instead of minting artificial "end" resources, loop the last volume collection
              back to the first volume collection. -->
         <xsl:variable name="firstTEIWithFacsimile" as="element(tei:TEI)?"
-            select="($allTEIs[.//tei:facsimile/tei:surface/tei:graphic])[1]"/>
+            select="($allTEIs[.//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))]])[1]"/>
         <xsl:variable name="firstVolumeId">
             <xsl:if test="$firstTEIWithFacsimile">
                 <xsl:variable name="rawXmlId" select="normalize-space(string($firstTEIWithFacsimile/@xml:id))"/>
@@ -353,7 +353,7 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
-                <xsl:variable name="graphics" select=".//tei:facsimile/tei:surface/tei:graphic[@url][not(starts-with(@url, 'http'))]"/>
+                <xsl:variable name="graphics" select=".//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))]"/>
                 <xsl:variable name="graphicsSorted" as="element(tei:graphic)*">
                     <xsl:perform-sort select="$graphics">
                         <xsl:sort select="replace(replace(string(@url), '^.*[\\/]', ''), '^[\\./]+', '')" order="ascending"/>
@@ -385,7 +385,7 @@
                 </acdh:Resource>
 
                 <xsl:if test="exists($graphicsSorted)">
-                    <xsl:variable name="nextTEIWithFacsimile" select="($allTEIs[position() &gt; $teiPos][.//tei:facsimile/tei:surface/tei:graphic])[1]"/>
+                    <xsl:variable name="nextTEIWithFacsimile" select="($allTEIs[position() &gt; $teiPos][.//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))]])[1]"/>
                     <xsl:variable name="nextVolumeId">
                         <xsl:if test="$nextTEIWithFacsimile">
                             <xsl:variable name="rawXmlId" select="normalize-space(string($nextTEIWithFacsimile/@xml:id))"/>
@@ -420,16 +420,16 @@
                     </xsl:variable>
                     <xsl:variable name="nextVolumeFirstGraphic">
                         <xsl:if test="$nextTEIWithFacsimile">
-                            <xsl:value-of select="concat(normalize-space($nextVolumeCol), '/', encode-for-uri(replace(replace($nextTEIWithFacsimile//tei:facsimile/tei:surface/tei:graphic[1]/@url, '^.*[\\/]', ''), '^[\\./]+', '')))"/>
+                            <xsl:value-of select="concat(normalize-space($nextVolumeCol), '/', encode-for-uri(replace(replace($nextTEIWithFacsimile//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))][1]/@url, '^.*[\\/]', ''), '^[\\./]+', '')))"/>
                         </xsl:if>
                     </xsl:variable>
                     <xsl:variable name="nextVolumeFirstGraphicBis">
                         <xsl:if test="$nextTEIWithFacsimile">
-                            <xsl:value-of select="concat(normalize-space($nextVolumeColBis), '/', encode-for-uri(replace(replace($nextTEIWithFacsimile//tei:facsimile/tei:surface/tei:graphic[1]/@url, '^.*[\\/]', ''), '^[\\./]+', '')))"/>
+                            <xsl:value-of select="concat(normalize-space($nextVolumeColBis), '/', encode-for-uri(replace(replace($nextTEIWithFacsimile//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))][1]/@url, '^.*[\\/]', ''), '^[\\./]+', '')))"/>
                         </xsl:if>
                     </xsl:variable>
                     <xsl:variable name="afterThisVolumeMasters" select="if ($nextTEIWithFacsimile) then normalize-space($nextVolumeCol) else $Derivates"/>
-                    <xsl:variable name="afterThisVolumeDerivates" select="if ($nextTEIWithFacsimile) then normalize-space($nextVolumeColBis) else 'https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/logo_okar.png'"/>
+                    <xsl:variable name="afterThisVolumeDerivates" select="if ($nextTEIWithFacsimile) then normalize-space($nextVolumeColBis) else 'https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png'"/>
                     <!-- Find first image in this facsimile subcollection -->
                     <xsl:variable name="firstGraphic">
                         <xsl:if test="count($graphicsSorted) &gt; 0">
@@ -668,30 +668,30 @@
                 </xsl:if>
             </xsl:for-each>
 
-            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/logo_okar.png">
+            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png">
                 <acdh:hasTitle xml:lang="de">Logo von „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <!--<acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/image"/>
                 <acdh:hasFormat>image/png</acdh:hasFormat>
-                <acdh:isTitleImageOf rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien"/>
+                <acdh:isTitleImageOf rdf:resource="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien"/>
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
             </acdh:Resource>
-            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/schema.odd">
+            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/schema.odd">
                 <acdh:hasTitle xml:lang="de">TEI-XML-Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <acdh:hasDescription xml:lang="de">XML/TEI Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
-                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions"/>
+                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
             </acdh:Metadata>
-            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/schema.rng">
+            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/schema.rng">
                 <acdh:hasTitle xml:lang="de">TEI/XML Schema RNG für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <acdh:hasDescription xml:lang="de">XML/TEI Schema RNG für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
-                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/editions"/>
+                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
                 <!-- <acdh:hasNextItem rdf:resource="{$Facsimiles}"/> -->
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
