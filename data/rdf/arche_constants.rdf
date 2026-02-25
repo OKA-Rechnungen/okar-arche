@@ -145,6 +145,7 @@
         <acdh:hasFirstName xml:lang="und">Brigitte</acdh:hasFirstName>
         <acdh:hasLastName xml:lang="und">Rigele</acdh:hasLastName>
         <acdh:isMemberOf rdf:resource="https://d-nb.info/gnd/2060831-7" />
+        <acdh:hasIdentifier rdf:resource="https://d-nb.info/gnd/1147709149" />
         <acdh:hasPersonalTitle>Dr.</acdh:hasPersonalTitle>
       </acdh:Person>
         <acdh:Person rdf:about="https://id.acdh.oeaw.ac.at/junterholzner">
