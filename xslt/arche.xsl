@@ -86,7 +86,7 @@
         <xsl:variable name="firstVolumeId">
             <xsl:if test="$firstTEIWithFacsimile">
                 <xsl:variable name="rawXmlId" select="normalize-space(string($firstTEIWithFacsimile/@xml:id))"/>
-                <xsl:variable name="rawDocName" select="replace(replace(document-uri($firstTEIWithFacsimile), '^.*[\\/]', ''), '\\.[xX][mM][lL]$', '')"/>
+                <xsl:variable name="rawDocName" select="replace(replace(base-uri($firstTEIWithFacsimile), '^.*[\\/]', ''), '\.[xX][mM][lL]$', '')"/>
                 <xsl:choose>
                     <xsl:when test="string-length($rawXmlId) &gt; 0">
                         <xsl:variable name="lowerId" select="lower-case($rawXmlId)"/>
@@ -106,9 +106,9 @@
             </xsl:if>
         </xsl:variable>
         <xsl:variable name="firstVolumeCol" as="xs:string"
-            select="if (normalize-space($firstVolumeId)) then concat($Facsimiles, '/', replace(normalize-space($firstVolumeId), '\\.[xX][mM][lL]$', '')) else ''"/>
+            select="if (normalize-space($firstVolumeId)) then concat($Facsimiles, '/', replace(normalize-space($firstVolumeId), '\.[xX][mM][lL]$', '')) else ''"/>
         <xsl:variable name="firstVolumeColBis" as="xs:string"
-            select="if (normalize-space($firstVolumeId)) then concat($Derivates, '/', replace(normalize-space($firstVolumeId), '\\.[xX][mM][lL]$', '')) else ''"/>
+            select="if (normalize-space($firstVolumeId)) then concat($Derivates, '/', replace(normalize-space($firstVolumeId), '\.[xX][mM][lL]$', '')) else ''"/>
         <rdf:RDF xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#">
             <acdh:TopCollection>
                 <xsl:attribute name="rdf:about">
@@ -182,7 +182,28 @@
             </xsl:for-each>
 
             <xsl:for-each select="$allTEIs">
-                <xsl:variable name="id" select="concat(string($Editions), '/', normalize-space(string(@xml:id)))"/>
+                <!-- Compute volumeId early so it can be used for the edition URI too -->
+                <xsl:variable name="rawXmlId" select="normalize-space(string(@xml:id))"/>
+                <xsl:variable name="rawDocName" select="replace(replace(base-uri(.), '^.*[\\/]', ''), '\.[xX][mM][lL]$', '')"/>
+                <xsl:variable name="volumeId">
+                    <xsl:choose>
+                        <xsl:when test="string-length($rawXmlId) &gt; 0">
+                            <xsl:variable name="lowerId" select="lower-case($rawXmlId)"/>
+                            <xsl:choose>
+                                <xsl:when test="ends-with($lowerId, '.xml')">
+                                    <xsl:value-of select="substring($rawXmlId, 1, string-length($rawXmlId) - 4)"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="$rawXmlId"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$rawDocName"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <xsl:variable name="id" select="concat(string($Editions), '/', normalize-space(string($volumeId)))"/>
                 <xsl:variable name="teiPos" select="position()"/>
                 <xsl:variable name="nextTEI" select="$allTEIs[$teiPos + 1]"/>
                 <xsl:variable name="currentTEI" select="."/>
@@ -190,7 +211,8 @@
                 <xsl:variable name="currentYear" select="acdh:extractYear(.)"/>
                 <xsl:variable name="teisWithSameYear" select="$allTEIs[acdh:extractYear(.) = $currentYear]"/>
                 <xsl:variable name="countSameYear" select="count($teisWithSameYear)"/>
-                <xsl:variable name="positionInYear" select="count($teisWithSameYear[. &lt;&lt; $currentTEI]) + 1"/>
+                <!-- Use sorted-sequence position instead of &lt;&lt; (document-order), which is arbitrary across collection() documents -->
+                <xsl:variable name="positionInYear" select="count($allTEIs[position() &lt; $teiPos][acdh:extractYear(.) = $currentYear]) + 1"/>
                 <xsl:variable name="romanSuffix" select="if ($countSameYear &gt; 1) then concat(' | ', acdh:toRoman($positionInYear)) else ''"/>
                 <xsl:variable name="origDate" select="(.//tei:msContents/tei:p/tei:origDate)[1]"/>
                 <xsl:variable name="origDateWhen" select="normalize-space(string($origDate/@when))"/>
@@ -276,31 +298,11 @@
                         </acdh:hasNonLinkedIdentifier>
                     </xsl:if>
                 </xsl:variable>
-                <!-- Prefer TEI @xml:id for volume id; fallback to document-uri basename. Use ends-with and substring to strip '.xml' robustly. -->
-                <xsl:variable name="rawXmlId" select="normalize-space(string(@xml:id))"/>
-                <xsl:variable name="rawDocName" select="replace(replace(document-uri(.), '^.*[\\/]', ''), '\\.[xX][mM][lL]$', '')"/>
-                <xsl:variable name="volumeId">
-                    <xsl:choose>
-                        <xsl:when test="string-length($rawXmlId) &gt; 0">
-                            <xsl:variable name="lowerId" select="lower-case($rawXmlId)"/>
-                            <xsl:choose>
-                                <xsl:when test="ends-with($lowerId, '.xml')">
-                                    <xsl:value-of select="substring($rawXmlId, 1, string-length($rawXmlId) - 4)"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of select="$rawXmlId"/>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="$rawDocName"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </xsl:variable>
+                <!-- volumeId, rawXmlId, rawDocName are now computed at the top of the for-each loop -->
                 <xsl:variable name="isTargetVolume" as="xs:boolean" select="starts-with(normalize-space(string($volumeId)), 'WSTLA-OKA-B1-1-')"/>
                 <!-- Ensure no trailing .xml in volumeCol even if volumeId may contain it -->
-                <xsl:variable name="volumeCol" select="concat($Facsimiles, '/', replace($volumeId, '\\.[xX][mM][lL]$', ''))"/>
-                <xsl:variable name="volumeColBis" select="concat($Derivates, '/', replace($volumeId, '\\.[xX][mM][lL]$', ''))"/>
+                <xsl:variable name="volumeCol" select="concat($Facsimiles, '/', replace($volumeId, '\.[xX][mM][lL]$', ''))"/>
+                <xsl:variable name="volumeColBis" select="concat($Derivates, '/', replace($volumeId, '\.[xX][mM][lL]$', ''))"/>
                 <!-- Subcollection title base:
                      - Prefer the TEI's descriptive "main" title (de) to mirror the TEI file title
                      - If the title is just a self number (e.g. 103), use "Kammeramtsrechnung {year} ({selfnumber})" with year from //sourceDesc/bibl/date
@@ -389,7 +391,7 @@
                     <xsl:variable name="nextVolumeId">
                         <xsl:if test="$nextTEIWithFacsimile">
                             <xsl:variable name="rawXmlId" select="normalize-space(string($nextTEIWithFacsimile/@xml:id))"/>
-                            <xsl:variable name="rawDocName" select="replace(replace(document-uri($nextTEIWithFacsimile), '^.*[\\/]', ''), '\\.[xX][mM][lL]$', '')"/>
+                            <xsl:variable name="rawDocName" select="replace(replace(base-uri($nextTEIWithFacsimile), '^.*[\\/]', ''), '\.[xX][mM][lL]$', '')"/>
                             <xsl:choose>
                                 <xsl:when test="string-length($rawXmlId) &gt; 0">
                                     <xsl:variable name="lowerId" select="lower-case($rawXmlId)"/>
@@ -410,12 +412,12 @@
                     </xsl:variable>
                     <xsl:variable name="nextVolumeCol">
                         <xsl:if test="$nextTEIWithFacsimile and normalize-space($nextVolumeId) and starts-with(normalize-space($nextVolumeId), 'WSTLA-OKA-B1-1-')">
-                            <xsl:value-of select="concat($Facsimiles, '/', replace($nextVolumeId, '\\.[xX][mM][lL]$', ''))"/>
+                            <xsl:value-of select="concat($Facsimiles, '/', replace($nextVolumeId, '\.[xX][mM][lL]$', ''))"/>
                         </xsl:if>
                     </xsl:variable>
                     <xsl:variable name="nextVolumeColBis">
                         <xsl:if test="$nextTEIWithFacsimile and normalize-space($nextVolumeId) and starts-with(normalize-space($nextVolumeId), 'WSTLA-OKA-B1-1-')">
-                            <xsl:value-of select="concat($Derivates, '/', replace($nextVolumeId, '\\.[xX][mM][lL]$', ''))"/>
+                            <xsl:value-of select="concat($Derivates, '/', replace($nextVolumeId, '\.[xX][mM][lL]$', ''))"/>
                         </xsl:if>
                     </xsl:variable>
                     <xsl:variable name="nextVolumeFirstGraphic">
@@ -510,7 +512,7 @@
                         <xsl:variable name="collectionUri" select="concat($pageXmlFolder, '?select=*.xml')"/>
                         <xsl:if test="doc-available(concat($pageXmlFolder, '/', $volumeId, '_00001.xml'))">
                             <xsl:perform-sort select="collection($collectionUri)/*">
-                                <xsl:sort select="replace(document-uri(.), '^.*[\\/]', '')" order="ascending"/>
+                                <xsl:sort select="replace(base-uri(.), '^.*[\\/]', '')" order="ascending"/>
                             </xsl:perform-sort>
                         </xsl:if>
                     </xsl:variable>
@@ -668,30 +670,30 @@
                 </xsl:if>
             </xsl:for-each>
 
-            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png">
+            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png">
                 <acdh:hasTitle xml:lang="de">Logo von „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <!--<acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/image"/>
                 <acdh:hasFormat>image/png</acdh:hasFormat>
-                <acdh:isTitleImageOf rdf:resource="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien"/>
+                <acdh:isTitleImageOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
             </acdh:Resource>
-            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/schema.odd">
+            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.odd">
                 <acdh:hasTitle xml:lang="de">TEI-XML-Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <acdh:hasDescription xml:lang="de">XML/TEI Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
-                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
+                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
             </acdh:Metadata>
-            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/schema.rng">
+            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.rng">
                 <acdh:hasTitle xml:lang="de">TEI/XML Schema RNG für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <acdh:hasDescription xml:lang="de">XML/TEI Schema RNG für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
-                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at//wstla_/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
+                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
                 <!-- <acdh:hasNextItem rdf:resource="{$Facsimiles}"/> -->
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>

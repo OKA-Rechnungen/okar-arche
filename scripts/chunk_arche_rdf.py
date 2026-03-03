@@ -46,9 +46,9 @@ ET.register_namespace("acdh", ACDH_NS)
 
 RDF_ABOUT = f"{{{RDF_NS}}}about"
 
-MASTERS_ROOT = "https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/masters"
-DERIVATES_ROOT = "https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/derivates"
-PAGEXML_ROOT = "https://id.acdh.oeaw.ac.at/oka-rechnungsbuecher-stadtwien/pagexml"
+MASTERS_ROOT = "https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/masters"
+DERIVATES_ROOT = "https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/derivates"
+PAGEXML_ROOT = "https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml"
 
 
 def _safe_filename(name: str) -> str:
