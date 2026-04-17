@@ -283,14 +283,14 @@
                         </acdh:hasTemporalCoverageIdentifier>
                     </xsl:if>
                 </xsl:variable>
-                <!-- Original descriptionElements kept for non-TEI resources -->
+                <!-- Original descriptionElements kept for non-TEI resources 
                 <xsl:variable name="descriptionElementsOrig">
                     <xsl:if test="$origDateDescription">
                         <acdh:hasDescription xml:lang="de">
                             <xsl:value-of select="$origDateDescription"/>
                         </acdh:hasDescription>
                     </xsl:if>
-                </xsl:variable>
+                </xsl:variable>-->
                 <xsl:variable name="identifierElements">
                     <xsl:if test="$shelfmark">
                         <acdh:hasNonLinkedIdentifier>
@@ -340,6 +340,7 @@
                 <xsl:variable name="volumeLabel" select="normalize-space(string($volumeTitleBase))"/>
                 <!-- descriptionElements for xml-tei resources with kämmerer info -->
                 <xsl:variable name="descriptionElements">
+                    <xsl:value-of select="concat('Shelfmark: ', $shelfmark, '&#10; &#10;')"/>
                     <xsl:choose>
                         <xsl:when test="string-length($kaemmerer) &gt; 0 and string-length($kaemmererName) &gt; 0 and string-length(normalize-space($origDateDescription)) &gt; 0">
                             <xsl:value-of select="concat($kaemmerer, ': ', $kaemmererName, '&#10; &#10; Inhalt: ', $origDateDescription)"/>
@@ -679,25 +680,23 @@
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
             </acdh:Resource>
-            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.odd">
+            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.odd">
                 <acdh:hasTitle xml:lang="de">TEI-XML-Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <acdh:hasDescription xml:lang="de">XML/TEI Schema ODD für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
-                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
-            </acdh:Metadata>
-            <acdh:Metadata rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.rng">
+            </acdh:Resource>
+            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.rng">
                 <acdh:hasTitle xml:lang="de">TEI/XML Schema RNG für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasTitle>
                 <acdh:hasDescription xml:lang="de">XML/TEI Schema RNG für „Oberkammeramtsrechnungsbücher der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
-                <acdh:isMetadataFor rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/editions"/>
                 <!-- <acdh:hasNextItem rdf:resource="{$Facsimiles}"/> -->
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
-            </acdh:Metadata>
+            </acdh:Resource>
         </rdf:RDF>
     </xsl:template>
 </xsl:stylesheet>
