@@ -39,6 +39,9 @@ pip-delete-this-directory.txt
 #Secret
 acdh-ch-cluster-2.yaml
 
+# Generated / large build artifacts
+metadata_to_ingest/arche.rdf
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
