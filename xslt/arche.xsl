@@ -468,7 +468,7 @@
                             <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $coverageIdentifierYear, $romanSuffix, ' (Master-Scans)')"/>
                         </acdh:hasTitle>
                          <acdh:hasAlternativeTitle xml:lang="de">
-                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark, ' (Master-Scans)')"/>
+                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark)"/>
                         </acdh:hasAlternativeTitle>
                         <acdh:hasDescription xml:lang="de">
                             <xsl:value-of select="$descriptionElements"/>
@@ -492,7 +492,7 @@
                             <xsl:value-of select="concat('Rrechnungsbuch des Oberkammeramtes | ', $coverageIdentifierYear, $romanSuffix, ' (Bearbeitete Digitalisate)')"/>
                         </acdh:hasTitle>
                          <acdh:hasAlternativeTitle xml:lang="de">
-                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark, ' (Bearbeitete Digitalisate)')"/>
+                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark)"/>
                         </acdh:hasAlternativeTitle>
                         <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool"/>
                         <acdh:hasDescription xml:lang="de">
