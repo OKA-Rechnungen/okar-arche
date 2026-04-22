@@ -507,10 +507,6 @@
                         <xsl:if test="$isTargetVolume and normalize-space($firstGraphicBis)">
                             <acdh:hasNextItem rdf:resource="{$firstGraphicBis}"/>
                         </xsl:if>
-                        <xsl:if test="string-length($coverageIdentifierYear) &gt; 0">
-                            <acdh:hasCreatedStartDateOriginal><xsl:value-of select="concat($coverageIdentifierYear, '-01-01')"/></acdh:hasCreatedStartDateOriginal>
-                            <acdh:hasCreatedEndDateOriginal><xsl:value-of select="concat($coverageIdentifierYear, '-12-31')"/></acdh:hasCreatedEndDateOriginal>
-                        </xsl:if>
                         <xsl:copy-of select="$constants"/>
                         <xsl:copy-of select="$constantsDer"/>
                     </acdh:Collection>
