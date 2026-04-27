@@ -7,10 +7,12 @@
     <acdh:TopCollection rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien">
         <acdh:hasPid>create</acdh:hasPid>
 	    <acdh:hasTitle xml:lang="de">Rechnungsbücher des Oberkammeramtes der Stadt Wien</acdh:hasTitle> 
-	    <acdh:hasDescription xml:lang="de">Die Sammlung enthält 289 digitalisierte Rechnungsbücher des Oberkammeramtes der Stadt Wien aus der Zeit von 1424 bis 1768. Die Digitalisierung und Tiefenerschließung erfolgte 2024–2026 am Wiener Stadt- und Landesarchiv sowie am Austrian Centre for Digital Humanities im Projekt „Digitale Erschließung der Oberkammeramtsrechnungen der Stadt Wien“, gefördert durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport im Förderprogramm „Kulturerbe digital“ und finanziert aus EU.</acdh:hasDescription>
+  <acdh:hasDescription xml:lang="de">Die Rechnungsbücher des Oberkammeramtes der Stadt Wien bilden einen zentralen Quellenbestand zur Wiener Stadtgeschichte des Mittelalters und der Frühen Neuzeit. Sie decken einen Zeitraum von 1424–1768 ab und enthalten Informationen zu zahlreichen Aspekten städtischen Lebens. Die Digitalisierung und Tiefenerschließung der insgesamt 289 Bände erfolgte 2024–2026 am Wiener Stadt- und Landesarchiv sowie am Austrian Centre for Digital Humanities im Projekt „Digitale Erschließung der Oberkammeramtsrechnungen der Stadt Wien“, gefördert durch das Bundesministerium für Wohnen, Kunst, Kultur, Medien und Sport im Förderprogramm „Kulturerbe digital“ und finanziert aus EU.
+
+Die Rechnungsbücher verzeichnen – teilweise in aggregierter Form – sämtliche Einnahmen und Ausgaben der Stadt Wien und geben somit ein Bild ihrer wirtschaftlichen Lage. Die Relevanz der Sammlung geht aber darüber hinaus, da die Eintragungen Einblicke in das Leben und die politische Geschichte der Stadt, ihre Verwaltung, Bauten, Infrastruktur, Wirtschaft und Bevölkerung geben – all das über einen Zeitraum von knapp 350 Jahren. Da Wien damals ein wichtiges politisches und wirtschaftliches Zentrum von überregionaler Bedeutung war, sind die Rechnungsbücher auch für die international vergleichende Stadtgeschichtsforschung von Relevanz. Die Digitalisierung und Tiefenerschließung der Rechnungsbücher des Oberkammeramts der Stadt Wien stellt zur bisher nur analog möglichen Nutzung dieses Quellenbestands einen großen Mehrwert dar.</acdh:hasDescription>
         <acdh:hasContact rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
         <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
-        <acdh:hasDepositor rdf:resource="https://id.acdh.oeaw.ac.at/brigele"/>
+        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
         <acdh:hasEditor rdf:resource="https://d-nb.info/gnd/2060831-7"/>   
         <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/rklugseder"/>
         <acdh:hasContributor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
@@ -23,6 +25,15 @@
         <acdh:hasCoverageStartDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1424-01-01</acdh:hasCoverageStartDate>
         <acdh:hasCoverageEndDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1767-12-31</acdh:hasCoverageEndDate>
         <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
+   <acdh:hasSubject xml:lang="de">Wien</acdh:hasSubject>
+      <acdh:hasSubject xml:lang="de">Niederösterreich</acdh:hasSubject>
+      <acdh:hasSubject xml:lang="de">Mittelalter</acdh:hasSubject>
+      <acdh:hasSubject xml:lang="de">frühe Neuzeit</acdh:hasSubject>
+      <acdh:hasSubject xml:lang="de">Wirtschaft</acdh:hasSubject>
+ <acdh:hasUrl>https://okar.acdh.oeaw.ac.at</acdh:hasUrl>
+      <acdh:hasUrl>https://www.wien.gv.at/actaproweb2/benutzung/archive.xhtml?id=Best%20%20%20%2000000003ma8Invent#Best____00000003ma8Invent</acdh:hasUrl>
+      <acdh:hasUrl>https://www.geschichtewiki.wien.gv.at/Oberkammeramt</acdh:hasUrl>
+      <acdh:hasUrl>https://www.geschichtewiki.wien.gv.at/Oberkammeramtsrechnung</acdh:hasUrl>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601020"/>
         <acdh:hasRelatedDiscipline rdf:resource="https://vocabs.acdh.oeaw.ac.at/oefosdisciplines/601029"/>
@@ -203,7 +214,7 @@
 
     <!-- mandatory properties shared by acdh:Collection AND acdh:Resource -->
     <acdh:RepoObject>
-        <acdh:hasDepositor rdf:resource="https://id.acdh.oeaw.ac.at/brigele"/>
+        <acdh:hasDepositor rdf:resource="https://d-nb.info/gnd/2060831-7"/>
         <acdh:hasMetadataCreator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
         <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
         <acdh:hasCurator rdf:resource="https://id.acdh.oeaw.ac.at/fsanzlazaro"/>
