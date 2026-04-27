@@ -319,10 +319,10 @@
                             <xsl:variable name="yearForFallback" select="replace($yearForFallbackRaw, '^.*?([0-9]{4}).*$', '$1')"/>
                             <xsl:choose>
                                 <xsl:when test="matches($yearForFallback, '[0-9]{4}')">
-                                    <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $yearForFallback, ' (', $teiTitleCandidate, ')')"/>
+                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $yearForFallback, ' (', $teiTitleCandidate, ')')"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="concat('Oberkammeramtsrechnung (', $teiTitleCandidate, ')')"/>
+                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes (', $teiTitleCandidate, ')')"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:when>
@@ -664,13 +664,21 @@
                             <!-- <acdh:hasLicense rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelicenses/cc-by-4-0"/> -->
                             <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/image"/>
                             <acdh:isPartOf rdf:resource="{$volumeColBis}"/>
-                            <acdh:isSourceOf rdf:resource="{concat($pageXmlColUri, '/', encode-for-uri(concat(replace($graphicFilename, '\.[^.]+$', ''), '.xml')))}"/>
+                            <!-- Only emit isSourceOf to PAGE-XML when the file actually exists on disk;
+                                 otherwise importing derivates alone causes ARCHE to create empty stubs. -->
+                            <xsl:variable name="pageXmlBasename" select="concat(replace($graphicFilename, '\.[^.]+$', ''), '.xml')"/>
+                            <xsl:if test="doc-available(concat($pageXmlFolder, '/', $pageXmlBasename))">
+                                <acdh:isSourceOf rdf:resource="{concat($pageXmlColUri, '/', encode-for-uri($pageXmlBasename))}"/>
+                            </xsl:if>
                             <acdh:isSourceOf rdf:resource="{$id}"/>
                             <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
                             <acdh:hasFormat>image/tiff</acdh:hasFormat>
                             <acdh:hasTitle xml:lang="de">
-                                <xsl:value-of select="concat('Oberkammeramtsrechnung | ', $coverageIdentifierYear, $romanSuffix, ' (Bearbeitetes Digitalisat) – ', $imageNumber)"/>
+                                <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (Bearbeitetes Digitalisat) – ', $imageNumber)"/>
                             </acdh:hasTitle>
+                             <acdh:hasAlternativeTitle xml:lang="de">
+                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark, ' – ', $imageNumber)"/>
+                        </acdh:hasAlternativeTitle>
                             <!-- <acdh:hasUrl>
                                 <xsl:value-of select="$graphicUrl"/>
                             </acdh:hasUrl> -->
