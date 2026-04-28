@@ -12,9 +12,19 @@
     <xsl:function name="acdh:toRoman" as="xs:string">
         <xsl:param name="num" as="xs:integer"/>
         <xsl:variable name="romanMap" as="element()*">
-            <r n="1000" s="M"/><r n="900" s="CM"/><r n="500" s="D"/><r n="400" s="CD"/>
-            <r n="100" s="C"/><r n="90" s="XC"/><r n="50" s="L"/><r n="40" s="XL"/>
-            <r n="10" s="X"/><r n="9" s="IX"/><r n="5" s="V"/><r n="4" s="IV"/><r n="1" s="I"/>
+            <r n="1000" s="M"/>
+            <r n="900" s="CM"/>
+            <r n="500" s="D"/>
+            <r n="400" s="CD"/>
+            <r n="100" s="C"/>
+            <r n="90" s="XC"/>
+            <r n="50" s="L"/>
+            <r n="40" s="XL"/>
+            <r n="10" s="X"/>
+            <r n="9" s="IX"/>
+            <r n="5" s="V"/>
+            <r n="4" s="IV"/>
+            <r n="1" s="I"/>
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$num le 0">
@@ -69,7 +79,7 @@
         <xsl:variable name="Facsimiles">
             <xsl:value-of select="concat($TopColId, '/masters')"/>
         </xsl:variable>
-         <xsl:variable name="Derivates">
+        <xsl:variable name="Derivates">
             <xsl:value-of select="concat($TopColId, '/derivates')"/>
         </xsl:variable>
         <xsl:variable name="PageXml">
@@ -81,8 +91,7 @@
         <!-- ARCHE requires acdh:hasNextItem for Kulturpool Collections.
              Instead of minting artificial "end" resources, loop the last volume collection
              back to the first volume collection. -->
-        <xsl:variable name="firstTEIWithFacsimile" as="element(tei:TEI)?"
-            select="($allTEIs[.//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))]])[1]"/>
+        <xsl:variable name="firstTEIWithFacsimile" as="element(tei:TEI)?" select="($allTEIs[.//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))]])[1]"/>
         <xsl:variable name="firstVolumeId">
             <xsl:if test="$firstTEIWithFacsimile">
                 <xsl:variable name="rawXmlId" select="normalize-space(string($firstTEIWithFacsimile/@xml:id))"/>
@@ -105,10 +114,8 @@
                 </xsl:choose>
             </xsl:if>
         </xsl:variable>
-        <xsl:variable name="firstVolumeCol" as="xs:string"
-            select="if (normalize-space($firstVolumeId)) then concat($Facsimiles, '/', replace(normalize-space($firstVolumeId), '\.[xX][mM][lL]$', '')) else ''"/>
-        <xsl:variable name="firstVolumeColBis" as="xs:string"
-            select="if (normalize-space($firstVolumeId)) then concat($Derivates, '/', replace(normalize-space($firstVolumeId), '\.[xX][mM][lL]$', '')) else ''"/>
+        <xsl:variable name="firstVolumeCol" as="xs:string" select="if (normalize-space($firstVolumeId)) then concat($Facsimiles, '/', replace(normalize-space($firstVolumeId), '\.[xX][mM][lL]$', '')) else ''"/>
+        <xsl:variable name="firstVolumeColBis" as="xs:string" select="if (normalize-space($firstVolumeId)) then concat($Derivates, '/', replace(normalize-space($firstVolumeId), '\.[xX][mM][lL]$', '')) else ''"/>
         <rdf:RDF xmlns:acdh="https://vocabs.acdh.oeaw.ac.at/schema#">
             <acdh:TopCollection>
                 <xsl:attribute name="rdf:about">
@@ -158,8 +165,8 @@
                     <xsl:copy-of select=".//acdh:*"/>
                 </acdh:Collection>
             </xsl:for-each>
-            
-             <xsl:for-each select=".//acdh:Collection[@rdf:about=$Derivates]">
+
+            <xsl:for-each select=".//acdh:Collection[@rdf:about=$Derivates]">
                 <acdh:Collection>
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="@rdf:about"/>
@@ -241,7 +248,7 @@
                 <xsl:variable name="coverageIdentifierUri" select="if (string-length($coverageIdentifierYear) &gt; 0 and $coverageIdentifierYear castable as xs:integer and xs:integer($coverageIdentifierYear) &gt;= 1500) then 'https://n2t.net/ark:/99152/p0qhb66' else 'https://n2t.net/ark:/99152/p0qhb66'"/>
                 <xsl:variable name="coverageElements">
                     <acdh:hasTag xml:lang="und">TEXT</acdh:hasTag>
-	            <xsl:choose>
+                    <xsl:choose>
                         <xsl:when test="$origDateYear">
                             <acdh:hasTemporalCoverage xml:lang="und">
                                 <xsl:value-of select="$origDateYear"/>
@@ -279,7 +286,7 @@
                 <xsl:variable name="coverageIdentifierElements">
                     <xsl:if test="string-length($coverageIdentifierYear) &gt; 0">
                         <acdh:hasTemporalCoverageIdentifier>
-				            <xsl:value-of select="$coverageIdentifierUri"/>
+                            <xsl:value-of select="$coverageIdentifierUri"/>
                         </acdh:hasTemporalCoverageIdentifier>
                     </xsl:if>
                 </xsl:variable>
@@ -319,10 +326,10 @@
                             <xsl:variable name="yearForFallback" select="replace($yearForFallbackRaw, '^.*?([0-9]{4}).*$', '$1')"/>
                             <xsl:choose>
                                 <xsl:when test="matches($yearForFallback, '[0-9]{4}')">
-                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $yearForFallback, ' (', $teiTitleCandidate, ')')"/>
+                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien| ', $yearForFallback, ' (', $teiTitleCandidate, ')')"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes (', $teiTitleCandidate, ')')"/>
+                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien (', $teiTitleCandidate, ')')"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:when>
@@ -340,7 +347,7 @@
                 <xsl:variable name="volumeLabel" select="normalize-space(string($volumeTitleBase))"/>
                 <!-- descriptionElements for xml-tei resources with kämmerer info -->
                 <xsl:variable name="descriptionElements">
-                    <xsl:value-of select="concat('Shelfmark: ', $shelfmark, '&#10; &#10;')"/>
+                    <xsl:value-of select="concat('Signatur: ', $shelfmark, '&#10; &#10;')"/>
                     <xsl:choose>
                         <xsl:when test="string-length($kaemmerer) &gt; 0 and string-length($kaemmererName) &gt; 0 and string-length(normalize-space($origDateDescription)) &gt; 0">
                             <xsl:value-of select="concat($kaemmerer, ': ', $kaemmererName, '&#10; &#10; Inhalt: ', $origDateDescription)"/>
@@ -356,6 +363,23 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
+                <xsl:variable name="descriptionElementsEn">
+                    <xsl:value-of select="concat('Shelfmark: ', $shelfmark, '&#10; &#10;')"/>
+                    <xsl:choose>
+                        <xsl:when test="string-length($kaemmerer) &gt; 0 and string-length($kaemmererName) &gt; 0 and string-length(normalize-space($origDateDescription)) &gt; 0">
+                            <xsl:value-of select="concat($kaemmerer, ': ', $kaemmererName, '&#10; &#10; Inhalt: ', $origDateDescription)"/>
+                        </xsl:when>
+                        <xsl:when test="string-length($kaemmerer) &gt; 0 and string-length($kaemmererName) &gt; 0">
+                            <xsl:value-of select="concat($kaemmerer, ': ', $kaemmererName)"/>
+                        </xsl:when>
+                        <xsl:when test="string-length(normalize-space($origDateDescription)) &gt; 0">
+                            <xsl:value-of select="concat('Contents: ', $origDateDescription)"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="concat('Digitised pages of the volume ', $volumeLabel)"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
                 <xsl:variable name="graphics" select=".//tei:facsimile/tei:surface/tei:graphic[@url][normalize-space(@url)][not(starts-with(@url, 'http'))]"/>
                 <xsl:variable name="graphicsSorted" as="element(tei:graphic)*">
                     <xsl:perform-sort select="$graphics">
@@ -367,20 +391,20 @@
                     <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
                     <acdh:isPartOf rdf:resource="{$Editions}"/>
                     <acdh:hasTitle xml:lang="de">
-                        <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $coverageIdentifierYear, $romanSuffix, ' (TEI-XML-Edition)')"/>
+                        <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (TEI-XML-Edition)')"/>
                     </acdh:hasTitle>
-                    <acdh:hasSchema xml:lang="und">
-                         <xsl:value-of select="$TopColId/schema.odd" />
-                    </acdh:hasSchema>
-                    <acdh:hasSchema xml:lang="und">
-                        <xsl:value-of select="$TopColId/schema.rng" />
-                   </acdh:hasSchema>
+                    <acdh:hasTitle xml:lang="en">
+                        <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (TEI-XML edition)')"/>
+                    </acdh:hasTitle>
                     <!-- <acdh:isObjectMetadataFor rdf:resource="{$Derivates}/{$volumeId}"/>
                     <acdh:isObjectMetadataFor rdf:resource="{$Facsimiles}/{$volumeId}"/> -->
                     <xsl:copy-of select="$coverageElements/*"/>
                     <xsl:copy-of select="$coverageIdentifierElements/*"/>
                     <acdh:hasDescription xml:lang="de">
                         <xsl:value-of select="$descriptionElements"/>
+                    </acdh:hasDescription>
+                     <acdh:hasDescription xml:lang="en">
+                        <xsl:value-of select="$descriptionElementsEn"/>
                     </acdh:hasDescription>
                     <xsl:copy-of select="$identifierElements/*"/>
                     <xsl:copy-of select="$constants"/>
@@ -436,7 +460,7 @@
                     <!-- Find first image in this facsimile subcollection -->
                     <xsl:variable name="firstGraphic">
                         <xsl:if test="count($graphicsSorted) &gt; 0">
-                                <xsl:value-of select="concat($volumeCol, '/', encode-for-uri(replace(replace($graphicsSorted[1]/@url, '^.*[\\/]', ''), '^[\./]+', '')))"/>
+                            <xsl:value-of select="concat($volumeCol, '/', encode-for-uri(replace(replace($graphicsSorted[1]/@url, '^.*[\\/]', ''), '^[\./]+', '')))"/>
                         </xsl:if>
                     </xsl:variable>
                     <xsl:variable name="firstGraphicBis">
@@ -462,18 +486,21 @@
                         </xsl:choose>
                     </xsl:variable>
                     <acdh:Collection rdf:about="{$volumeCol}">
-                            <!-- DEBUG: removed -->
+                        <!-- DEBUG: removed -->
                         <acdh:hasPid>create</acdh:hasPid>
                         <acdh:hasTitle xml:lang="de">
-                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $coverageIdentifierYear, $romanSuffix, ' (Master-Scans)')"/>
+                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (Master-Scans)')"/>
                         </acdh:hasTitle>
-                         <acdh:hasAlternativeTitle xml:lang="de">
-                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark)"/>
-                        </acdh:hasAlternativeTitle>
+                        <acdh:hasTitle xml:lang="en">
+                            <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (Master Scans)')"/>
+                        </acdh:hasTitle>
                         <acdh:hasDescription xml:lang="de">
                             <xsl:value-of select="$descriptionElements"/>
                         </acdh:hasDescription>
-                        <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" /> 
+                         <acdh:hasDescription xml:lang="en">
+                        <xsl:value-of select="$descriptionElementsEn"/>
+                    </acdh:hasDescription>
+                        <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" />
                         <xsl:copy-of select="$coverageElements/*"/>
                         <xsl:copy-of select="$coverageIdentifierElements/*"/>
                         <xsl:copy-of select="$identifierElements/*"/>
@@ -486,19 +513,30 @@
                     </acdh:Collection>
 
                     <acdh:Collection rdf:about="{$volumeColBis}">
-                            <!-- DEBUG: removed -->
+                        <!-- DEBUG: removed -->
                         <acdh:hasPid>create</acdh:hasPid>
                         <acdh:hasTitle xml:lang="de">
-                            <xsl:value-of select="concat('Rrechnungsbuch des Oberkammeramtes | ', $coverageIdentifierYear, $romanSuffix, ' (Bearbeitete Digitalisate)')"/>
+                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (Bearbeitete Digitalisate)')"/>
                         </acdh:hasTitle>
-                         <acdh:hasAlternativeTitle xml:lang="de">
+                        <acdh:hasTitle xml:lang="en">
+                            <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (Processed Digital Copies)')"/>
+                        </acdh:hasTitle>
+
+
+                        <acdh:hasAlternativeTitle xml:lang="de">
                             <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark)"/>
+                        </acdh:hasAlternativeTitle>
+                        <acdh:hasAlternativeTitle xml:lang="en">
+                            <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark)"/>
                         </acdh:hasAlternativeTitle>
                         <acdh:hasOaiSet rdf:resource="https://vocabs.acdh.oeaw.ac.at/archeoaisets/kulturpool"/>
                         <acdh:hasDescription xml:lang="de">
                             <xsl:value-of select="$descriptionElements"/>
                         </acdh:hasDescription>
-                        <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" /> 
+                         <acdh:hasDescription xml:lang="en">
+                        <xsl:value-of select="$descriptionElementsEn"/>
+                    </acdh:hasDescription>
+                        <acdh:hasSpatialCoverage rdf:resource="https://id.acdh.oeaw.ac.at/vienna" />
                         <xsl:copy-of select="$coverageElements/*"/>
                         <xsl:copy-of select="$coverageIdentifierElements/*"/>
                         <xsl:copy-of select="$identifierElements/*"/>
@@ -522,7 +560,7 @@
                             </xsl:perform-sort>
                         </xsl:if>
                     </xsl:variable>
-                    
+
                     <xsl:if test="count($pageXmlFiles) &gt; 0">
                         <!-- Extract all model_ids from page xml files in this collection -->
                         <xsl:variable name="allModelIds" as="xs:string*">
@@ -539,17 +577,25 @@
                         <!-- Capture variables for use in nested for-each -->
                         <xsl:variable name="pageYear" select="$coverageIdentifierYear"/>
                         <xsl:variable name="pageRomanSuffix" select="$romanSuffix"/>
-                        
+
                         <acdh:Collection rdf:about="{$pageXmlColUri}">
                             <acdh:hasPid>create</acdh:hasPid>
                             <acdh:hasTitle xml:lang="de">
-                                <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE-XML-Bechreibungen)')"/>
+                                <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE-XML-Bechreibungen)')"/>
                             </acdh:hasTitle>
+                            <acdh:hasTitle xml:lang="en">
+                                <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE XML descriptions)')"/>
+                            </acdh:hasTitle>
+
+
                             <acdh:hasUsedSoftware>Transkribus</acdh:hasUsedSoftware>
                             <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
                             <acdh:hasDescription xml:lang="de">
                                 <xsl:value-of select="$descriptionElements"/>
                             </acdh:hasDescription>
+                             <acdh:hasDescription xml:lang="en">
+                        <xsl:value-of select="$descriptionElementsEn"/>
+                    </acdh:hasDescription>
                             <acdh:hasAppliedMethodDescription xml:lang="de">
                                 <xsl:value-of select="$collectionMethodDesc"/>
                             </acdh:hasAppliedMethodDescription>
@@ -561,7 +607,7 @@
                             <xsl:copy-of select="$constants"/>
                             <xsl:copy-of select="$constantsPage[not(self::acdh:isPartOf)]"/>
                         </acdh:Collection>
-                        
+
                         <!-- Individual PAGE-XML resources -->
                         <xsl:for-each select="$pageXmlFiles">
                             <xsl:variable name="pageFilename" select="replace(string(base-uri(.)), '^.*[\\/]', '')"/>
@@ -570,7 +616,7 @@
                             <xsl:variable name="creatorText" select="normalize-space(.//page:Metadata/page:Creator)"/>
                             <xsl:variable name="resourceModelId" select="if (contains($creatorText, 'model_id=')) then replace($creatorText, '^.*model_id=([^:]+).*$', '$1') else ''"/>
                             <xsl:variable name="resourceMethodDesc" select="if (string-length($resourceModelId) &gt; 0) then concat('Generiert mit Transkribus (Automatische Texterkennung mit Modell ', $resourceModelId, ')') else 'Generiert mit Transkribus'"/>
-                            
+
                             <acdh:Resource rdf:about="{$pageResourceUri}">
                                 <acdh:hasPid>create</acdh:hasPid>
                                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/text"/>
@@ -579,7 +625,10 @@
                                 <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
                                 <acdh:hasFormat>application/xml</acdh:hasFormat>
                                 <acdh:hasTitle xml:lang="de">
-                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $pageYear, $pageRomanSuffix, ' (PAGE-XML-Beschreibung) – ', $pageNumber)"/>
+                                    <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $pageYear, $pageRomanSuffix, ' (PAGE-XML-Beschreibung) – ', $pageNumber)"/>
+                                </acdh:hasTitle>
+                                <acdh:hasTitle xml:lang="en">
+                                    <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $pageYear, $pageRomanSuffix, ' (PAGE XML description) – ', $pageNumber)"/>
                                 </acdh:hasTitle>
                                 <acdh:hasAppliedMethodDescription xml:lang="de">
                                     <xsl:value-of select="$resourceMethodDesc"/>
@@ -601,17 +650,17 @@
                         <xsl:variable name="width" select="string(@width)"/>
                         <xsl:variable name="height" select="string(@height)"/>
                         <xsl:variable name="extentValue">
-                        <xsl:choose>
-                            <xsl:when test="$width and $height">
-                                <xsl:value-of select="concat($width, ' × ', $height)"/>
-                            </xsl:when>
-                            <xsl:when test="$width">
-                                <xsl:value-of select="$width"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="$height"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
+                            <xsl:choose>
+                                <xsl:when test="$width and $height">
+                                    <xsl:value-of select="concat($width, ' × ', $height)"/>
+                                </xsl:when>
+                                <xsl:when test="$width">
+                                    <xsl:value-of select="$width"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="$height"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </xsl:variable>
                         <!-- compute next-node position and uri; only emit hasNextItem when a next image exists -->
                         <xsl:variable name="pos" select="position()"/>
@@ -633,19 +682,25 @@
                             <acdh:hasTag xml:lang="en">TEXT</acdh:hasTag>
                             <acdh:hasFormat>image/tiff</acdh:hasFormat>
                             <acdh:hasTitle xml:lang="de">
-                                <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes | ', $coverageIdentifierYear, $romanSuffix, ' (Master-Scan) – ', $imageNumber)"/>
+                                <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (Master-Scan) – ', $imageNumber)"/>
                             </acdh:hasTitle>
-                            <!-- <acdh:hasUrl>
+                            <acdh:hasTitle xml:lang="en">
+                                <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (Master Scan) – ', $imageNumber)"/>
+                            </acdh:hasTitle>                                                                                    <!-- <acdh:hasUrl>
                                 <xsl:value-of select="$graphicUrl"/>
                             </acdh:hasUrl> -->
                             <xsl:if test="string-length($extentValue) &gt; 0">
-                                    <acdh:hasExtent xml:lang="und">
-                                        <xsl:value-of select="$extentValue"/>
-                                    </acdh:hasExtent>
+                                <acdh:hasExtent xml:lang="und">
+                                    <xsl:value-of select="$extentValue"/>
+                                </acdh:hasExtent>
                             </xsl:if>
                             <xsl:if test="string-length($coverageIdentifierYear) &gt; 0">
-                                <acdh:hasCreatedStartDateOriginal><xsl:value-of select="concat($coverageIdentifierYear, '-01-01')"/></acdh:hasCreatedStartDateOriginal>
-                                <acdh:hasCreatedEndDateOriginal><xsl:value-of select="concat($coverageIdentifierYear, '-12-31')"/></acdh:hasCreatedEndDateOriginal>
+                                <acdh:hasCreatedStartDateOriginal>
+                                    <xsl:value-of select="concat($coverageIdentifierYear, '-01-01')"/>
+                                </acdh:hasCreatedStartDateOriginal>
+                                <acdh:hasCreatedEndDateOriginal>
+                                    <xsl:value-of select="concat($coverageIdentifierYear, '-12-31')"/>
+                                </acdh:hasCreatedEndDateOriginal>
                             </xsl:if>
                             <xsl:if test="$volumeId = 'WSTLA-OKA-B1-1-084-1' and $graphicFilename = 'WSTLA-OKA-B1-1-084-1_00004.tif'">
                                 <acdh:isSourceOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png"/>
@@ -676,30 +731,43 @@
                             <acdh:hasTitle xml:lang="de">
                                 <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (Bearbeitetes Digitalisat) – ', $imageNumber)"/>
                             </acdh:hasTitle>
-                             <acdh:hasAlternativeTitle xml:lang="de">
-                            <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark, ' – ', $imageNumber)"/>
-                        </acdh:hasAlternativeTitle>
+                            <acdh:hasTitle xml:lang="en">
+                                <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (Processed Digital Copy) – ', $imageNumber)"/>
+                            </acdh:hasTitle>
+                            <acdh:hasAlternativeTitle xml:lang="de">
+                                <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark, ' – ', $imageNumber)"/>
+                            </acdh:hasAlternativeTitle>
+                            <acdh:hasAlternativeTitle xml:lang="en">
+                                <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' | ', $shelfmark, ' – ', $imageNumber)"/>
+                            </acdh:hasAlternativeTitle>
+
+
                             <!-- <acdh:hasUrl>
                                 <xsl:value-of select="$graphicUrl"/>
                             </acdh:hasUrl> -->
                             <xsl:if test="string-length($extentValue) &gt; 0">
-                                    <acdh:hasExtent xml:lang="und">
-                                        <xsl:value-of select="$extentValue"/>
-                                    </acdh:hasExtent>
+                                <acdh:hasExtent xml:lang="und">
+                                    <xsl:value-of select="$extentValue"/>
+                                </acdh:hasExtent>
                             </xsl:if>
                             <xsl:if test="string-length($coverageIdentifierYear) &gt; 0">
-                                <acdh:hasCreatedStartDateOriginal><xsl:value-of select="concat($coverageIdentifierYear, '-01-01')"/></acdh:hasCreatedStartDateOriginal>
-                                <acdh:hasCreatedEndDateOriginal><xsl:value-of select="concat($coverageIdentifierYear, '-12-31')"/></acdh:hasCreatedEndDateOriginal>
+                                <acdh:hasCreatedStartDateOriginal>
+                                    <xsl:value-of select="concat($coverageIdentifierYear, '-01-01')"/>
+                                </acdh:hasCreatedStartDateOriginal>
+                                <acdh:hasCreatedEndDateOriginal>
+                                    <xsl:value-of select="concat($coverageIdentifierYear, '-12-31')"/>
+                                </acdh:hasCreatedEndDateOriginal>
                             </xsl:if>
                             <xsl:copy-of select="$constants"/>
                             <xsl:copy-of select="$constantsImg"/>
-                        </acdh:Resource>                  
+                        </acdh:Resource>
                     </xsl:for-each>
                 </xsl:if>
             </xsl:for-each>
 
-            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/logo_okar.png">
+            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/meta/logo_okar.png">
                 <acdh:hasTitle xml:lang="de">Logo der „Rechnungsbücher des Oberkammeramtes der Stadt Wien“</acdh:hasTitle>
+                <acdh:hasTitle xml:lang="en">Logo of ‘The Account Books of the Upper Chamber Office of the City of Vienna’</acdh:hasTitle>
                 <!--<acdh:hasPid>create</acdh:hasPid> -->
                 <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/image"/>
                 <acdh:hasFormat>image/png</acdh:hasFormat>
@@ -707,22 +775,24 @@
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
             </acdh:Resource>
-            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.odd">
-                <acdh:hasTitle xml:lang="de">TEI-XML-Schema ODD für die „Rechnungsbücher des Oberkammeramtes der Stadt Wien“</acdh:hasTitle>
-                <acdh:hasDescription xml:lang="de">XML/TEI Schema ODD für „Rechnungsbücher des Oberkammeramtes der Stadt Wien“</acdh:hasDescription>
+            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/meta/schema.odd">
+                <acdh:hasTitle xml:lang="und">ODD Schema</acdh:hasTitle>
+                <acdh:hasDescription xml:lang="de">TEI-XML-ODD-Schema für die „Rechnungsbücher des Oberkammeramtes der Stadt Wien“</acdh:hasDescription>
+                <acdh:hasDescription xml:lang="en">TEI-XML ODD Schema for ‘The Account Book of the Upper Chamber Office of the City of Vienna’</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
-                <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
+                <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/model"/>
             </acdh:Resource>
-            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/schema.rng">
-                <acdh:hasTitle xml:lang="de">TEI/XML Schema RNG für die „Rechnungsbücher des Oberkammeramtes der Stadt Wien“</acdh:hasTitle>
-                <acdh:hasDescription xml:lang="de">XML/TEI Schema RNG für „Rechnungsbücher des Oberkammeramtes der Stadt Wien“</acdh:hasDescription>
+            <acdh:Resource rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/meta/schema.rng">
+                <acdh:hasTitle xml:lang="und">RNG-Schema</acdh:hasTitle>
+                <acdh:hasDescription xml:lang="en">TEI-XML-RNG Schema for  ‘The Account Book of the Upper Chamber Office of the City of Vienna’</acdh:hasDescription>
+                <acdh:hasDescription xml:lang="de">TEI-XML RNG Schema für die „Rechnungsbücher des Oberkammeramtes der Stadt Wien“</acdh:hasDescription>
                 <!-- <acdh:hasPid>create</acdh:hasPid> -->
-                <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/other"/>
                 <!-- <acdh:hasNextItem rdf:resource="{$Facsimiles}"/> -->
                 <xsl:copy-of select="$constants"/>
                 <xsl:copy-of select="$constantsMeta"/>
+                <acdh:hasCategory rdf:resource="https://vocabs.acdh.oeaw.ac.at/archecategory/model"/>
             </acdh:Resource>
         </rdf:RDF>
     </xsl:template>
