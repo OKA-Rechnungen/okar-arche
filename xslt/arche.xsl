@@ -584,7 +584,7 @@
                                 <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE-XML-Bechreibungen)')"/>
                             </acdh:hasTitle>
                             <acdh:hasTitle xml:lang="en">
-                                <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE XML descriptions)')"/>
+                                <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $coverageIdentifierYear, $romanSuffix, ' (PAGE-XML descriptions)')"/>
                             </acdh:hasTitle>
 
 
@@ -628,7 +628,7 @@
                                     <xsl:value-of select="concat('Rechnungsbuch des Oberkammeramtes der Stadt Wien | ', $pageYear, $pageRomanSuffix, ' (PAGE-XML-Beschreibung) – ', $pageNumber)"/>
                                 </acdh:hasTitle>
                                 <acdh:hasTitle xml:lang="en">
-                                    <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $pageYear, $pageRomanSuffix, ' (PAGE XML description) – ', $pageNumber)"/>
+                                    <xsl:value-of select="concat('Account Book of the Upper Chamber Office of the City of Vienna | ', $pageYear, $pageRomanSuffix, ' (PAGE-XML description) – ', $pageNumber)"/>
                                 </acdh:hasTitle>
                                 <acdh:hasAppliedMethodDescription xml:lang="de">
                                     <xsl:value-of select="$resourceMethodDesc"/>

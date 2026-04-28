@@ -58,13 +58,13 @@ The accounting books record – in some cases in aggregated form – all revenue
         <acdh:hasArrangement xml:lang="de">
         Die Sammlung umfasst die Sammlungen „Master-Scans“ und „Bearbeitete Digitalisate“, jeweils mit einer Untersammlung für jeden Band, die ein Bild jeder Seite des jeweiligen Bandes enthalten.  
         Die Sammlung „TEI-XML-Editionen“ enthält die TEI-XML-Editionen der Bände.  
-        Die Sammlung „PAGE-XML“ umfasst ebenfalls eine Untersammlung pro Band mit jeweils einer PAGE-XML-Datei pro Seite.  
+        Die Sammlung „PAGE-XML-Beschreibungen“ umfasst ebenfalls eine Untersammlung pro Band mit jeweils einer PAGE-XML-Datei pro Seite.  
         Die Sammlung „Ergänzende Materialien“ enthält diverse Dateien.
         </acdh:hasArrangement>
         <acdh:hasArrangement xml:lang="en">
 The collection includes the “Master Scans” and “Processed Digital Copies” collections, each with a subcollection for every volume, containing an image of each page of the respective volume.
-The “TEI XML Editions” collection contains the TEI XML editions of the volumes.
-The “PAGE XML” collection likewise includes a subcollection for each volume, with one PAGE XML file per page.
+The “TEI-XML Editions” collection contains the TEI-XML editions of the volumes.
+The “PAGE-XML Descriptions” collection likewise includes a subcollection for each volume, with one PAGE-XML file per page.
 The “Supplementary Materials” collection contains various files.
         </acdh:hasArrangement>
         <acdh:hasFunderLogo>https://shared.acdh.oeaw.ac.at/arche-funder-logos/BMWKMS_Logo_srgb.png</acdh:hasFunderLogo>
@@ -176,8 +176,9 @@ The “Supplementary Materials” collection contains various files.
             <acdh:hasEditor rdf:resource="https://id.acdh.oeaw.ac.at/junterholzner"/>
             <acdh:hasPid>create</acdh:hasPid>
             <acdh:hasTitle xml:lang="de">TEI-XML-Editionen</acdh:hasTitle>
-            <acdh:hasTitle xml:lang="en">TEI XML Editions</acdh:hasTitle>
-            <acdh:hasArrangement xml:lang="de">Die Sammlung enthält eine TEI-XML-Datei für jeden Band</acdh:hasArrangement>
+            <acdh:hasTitle xml:lang="en">TEI-XML Editions</acdh:hasTitle>
+            <acdh:hasArrangement xml:lang="de">The collection contains a TEI-XML file for each volume</acdh:hasArrangement>
+             <acdh:hasArrangement xml:lang="en">Die Sammlung enthält eine TEI-XML-Datei für jeden Band</acdh:hasArrangement>
             <acdh:hasOwner rdf:resource="https://id.acdh.oeaw.ac.at/acdh" />
             <acdh:hasSubject xml:lang="de">Rechnungsbuch</acdh:hasSubject>
             <acdh:hasSubject xml:lang="de">Wien</acdh:hasSubject>
@@ -192,7 +193,7 @@ The “Supplementary Materials” collection contains various files.
             <acdh:hasSubject xml:lang="en">Early Modern period</acdh:hasSubject>
             <acdh:hasSubject xml:lang="en">Economy</acdh:hasSubject>
             <acdh:hasLanguage rdf:resource="https://vocabs.acdh.oeaw.ac.at/iso6393/deu"/>
-           <acdh:hasDescription xml:lang="en">The collection contains TEI XML editions of ‘The Account Books of the Upper Chamber Office of the City of Vienna’ (1424 to 1768)</acdh:hasDescription>
+           <acdh:hasDescription xml:lang="en">The collection contains TEI-XML editions of ‘The Account Books of the Upper Chamber Office of the City of Vienna’ (1424 to 1768)</acdh:hasDescription>
             <acdh:hasLifeCycleStatus rdf:resource="https://vocabs.acdh.oeaw.ac.at/archelifecyclestatus/active"/>
             <acdh:isPartOf rdf:resource="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien"/>
             <acdh:hasFunder rdf:resource="https://id.acdh.oeaw.ac.at/bmwkms" />
@@ -202,7 +203,8 @@ The “Supplementary Materials” collection contains various files.
         </acdh:Collection>
         <acdh:Collection rdf:about="https://id.acdh.oeaw.ac.at/wstla_oka-rechnungsbuecher-stadtwien/pagexml">
             <acdh:hasPid>create</acdh:hasPid>
-          <acdh:hasTitle xml:lang="en">PAGE XML Descriptions</acdh:hasTitle>
+          <acdh:hasTitle xml:lang="de">PAGE-XML-Beschreibungen</acdh:hasTitle>
+          <acdh:hasTitle xml:lang="en">PAGE-XML Descriptions</acdh:hasTitle>
             <acdh:hasOwner rdf:resource="https://d-nb.info/gnd/2060831-7" />
             <acdh:hasArrangement xml:lang="de">Die Sammlung enthält eine Untersammlung für jeden Band</acdh:hasArrangement>
             <acdh:hasArrangement xml:lang="en">The collection contains a subcollection for each volume</acdh:hasArrangement>
